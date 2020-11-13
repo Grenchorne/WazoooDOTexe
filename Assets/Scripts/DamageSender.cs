@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Adhaesii.WazoooDOTexe
 {
-    public class DamageSender : MonoBehaviour
+    public class DamageSender : SerializedMonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        private void OnTriggerEnter2D(Collider2D other)
         {
-        
+            if (other.TryGetComponent(out IReceiveDamage dmg))
+            {
+                dmg.Damage();
+            }
         }
+    }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+    public interface IReceiveDamage
+    {
+        void Damage();
     }
 }
