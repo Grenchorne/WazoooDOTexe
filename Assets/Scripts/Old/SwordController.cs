@@ -1,8 +1,7 @@
 using Sirenix.OdinInspector;
-using UnityEditor.Animations;
 using UnityEngine;
 
-namespace Adhaesii.WazoooDOTexe
+namespace Adhaesii.WazoooDOTexe.Old
 {
     public class SwordController : SerializedMonoBehaviour
     {

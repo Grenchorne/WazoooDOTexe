@@ -1,9 +1,8 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
-
 using UnityEngine.UI;
 
-namespace Adhaesii.WazoooDOTexe.UI
+namespace Adhaesii.WazoooDOTexe.Old.UI
 {
     [RequireComponent(typeof(Slider))]
     public class FuelGauge : SerializedMonoBehaviour

@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Adhaesii.WazoooDOTexe
+namespace Adhaesii.WazoooDOTexe.Old
 {
     
     public class PlayerInputBinder : SerializedMonoBehaviour

@@ -10,7 +10,7 @@ namespace Adhaesii.WazoooDOTexe
         [SerializeField] private float depletionRate = 0.01f;
         [SerializeField] private int pips = 4;
 
-        private float _fuel;
+        private float _fuel = 1f;
         public event Action OnDeplete;
 
         [ShowInInspector]
@@ -37,12 +37,10 @@ namespace Adhaesii.WazoooDOTexe
         private void Update()
         {
             if (_groundCheck.IsGrounded)
-            {
                 Fuel += Time.deltaTime * (1 / groundedRechargeRate);
-            }
-            
+
             else if (depleting)
-                Fuel -= depletionRate;
+                Fuel -= Time.deltaTime * (1 / depletionRate);
         }
 
         public void EnableDepletion() => depleting = true;

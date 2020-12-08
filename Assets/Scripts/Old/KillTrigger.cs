@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Adhaesii.WazoooDOTexe
+namespace Adhaesii.WazoooDOTexe.Old
 {
     [RequireComponent(typeof(Collider2D))]
     public class KillTrigger : SerializedMonoBehaviour

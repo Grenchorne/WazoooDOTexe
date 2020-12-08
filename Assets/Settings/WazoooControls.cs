@@ -6,12 +6,14 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class @WazoooControls : IInputActionCollection, IDisposable
+namespace Adhaesii.WazoooDOTexe.Settings
 {
-    public InputActionAsset asset { get; }
-    public @WazoooControls()
+    public class @WazoooControls : IInputActionCollection, IDisposable
     {
-        asset = InputActionAsset.FromJson(@"{
+        public InputActionAsset asset { get; }
+        public @WazoooControls()
+        {
+            asset = InputActionAsset.FromJson(@"{
     ""name"": ""WazoooControls"",
     ""maps"": [
         {
@@ -161,139 +163,140 @@ public class @WazoooControls : IInputActionCollection, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Gameplay
-        m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-        m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
-        m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
-        m_Gameplay_Melee = m_Gameplay.FindAction("Melee", throwIfNotFound: true);
-        m_Gameplay_Ranged = m_Gameplay.FindAction("Ranged", throwIfNotFound: true);
-        m_Gameplay_Hover = m_Gameplay.FindAction("Hover", throwIfNotFound: true);
-        m_Gameplay_Aim = m_Gameplay.FindAction("Aim", throwIfNotFound: true);
-    }
+            // Gameplay
+            m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
+            m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
+            m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
+            m_Gameplay_Melee = m_Gameplay.FindAction("Melee", throwIfNotFound: true);
+            m_Gameplay_Ranged = m_Gameplay.FindAction("Ranged", throwIfNotFound: true);
+            m_Gameplay_Hover = m_Gameplay.FindAction("Hover", throwIfNotFound: true);
+            m_Gameplay_Aim = m_Gameplay.FindAction("Aim", throwIfNotFound: true);
+        }
 
-    public void Dispose()
-    {
-        UnityEngine.Object.Destroy(asset);
-    }
-
-    public InputBinding? bindingMask
-    {
-        get => asset.bindingMask;
-        set => asset.bindingMask = value;
-    }
-
-    public ReadOnlyArray<InputDevice>? devices
-    {
-        get => asset.devices;
-        set => asset.devices = value;
-    }
-
-    public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
-
-    public bool Contains(InputAction action)
-    {
-        return asset.Contains(action);
-    }
-
-    public IEnumerator<InputAction> GetEnumerator()
-    {
-        return asset.GetEnumerator();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
-    }
-
-    public void Enable()
-    {
-        asset.Enable();
-    }
-
-    public void Disable()
-    {
-        asset.Disable();
-    }
-
-    // Gameplay
-    private readonly InputActionMap m_Gameplay;
-    private IGameplayActions m_GameplayActionsCallbackInterface;
-    private readonly InputAction m_Gameplay_Movement;
-    private readonly InputAction m_Gameplay_Jump;
-    private readonly InputAction m_Gameplay_Melee;
-    private readonly InputAction m_Gameplay_Ranged;
-    private readonly InputAction m_Gameplay_Hover;
-    private readonly InputAction m_Gameplay_Aim;
-    public struct GameplayActions
-    {
-        private @WazoooControls m_Wrapper;
-        public GameplayActions(@WazoooControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
-        public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
-        public InputAction @Melee => m_Wrapper.m_Gameplay_Melee;
-        public InputAction @Ranged => m_Wrapper.m_Gameplay_Ranged;
-        public InputAction @Hover => m_Wrapper.m_Gameplay_Hover;
-        public InputAction @Aim => m_Wrapper.m_Gameplay_Aim;
-        public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
-        public void SetCallbacks(IGameplayActions instance)
+        public void Dispose()
         {
-            if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
+            UnityEngine.Object.Destroy(asset);
+        }
+
+        public InputBinding? bindingMask
+        {
+            get => asset.bindingMask;
+            set => asset.bindingMask = value;
+        }
+
+        public ReadOnlyArray<InputDevice>? devices
+        {
+            get => asset.devices;
+            set => asset.devices = value;
+        }
+
+        public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
+
+        public bool Contains(InputAction action)
+        {
+            return asset.Contains(action);
+        }
+
+        public IEnumerator<InputAction> GetEnumerator()
+        {
+            return asset.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public void Enable()
+        {
+            asset.Enable();
+        }
+
+        public void Disable()
+        {
+            asset.Disable();
+        }
+
+        // Gameplay
+        private readonly InputActionMap m_Gameplay;
+        private IGameplayActions m_GameplayActionsCallbackInterface;
+        private readonly InputAction m_Gameplay_Movement;
+        private readonly InputAction m_Gameplay_Jump;
+        private readonly InputAction m_Gameplay_Melee;
+        private readonly InputAction m_Gameplay_Ranged;
+        private readonly InputAction m_Gameplay_Hover;
+        private readonly InputAction m_Gameplay_Aim;
+        public struct GameplayActions
+        {
+            private @WazoooControls m_Wrapper;
+            public GameplayActions(@WazoooControls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
+            public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
+            public InputAction @Melee => m_Wrapper.m_Gameplay_Melee;
+            public InputAction @Ranged => m_Wrapper.m_Gameplay_Ranged;
+            public InputAction @Hover => m_Wrapper.m_Gameplay_Hover;
+            public InputAction @Aim => m_Wrapper.m_Gameplay_Aim;
+            public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
+            public void SetCallbacks(IGameplayActions instance)
             {
-                @Movement.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
-                @Jump.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
-                @Melee.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMelee;
-                @Melee.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMelee;
-                @Melee.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMelee;
-                @Ranged.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRanged;
-                @Ranged.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRanged;
-                @Ranged.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRanged;
-                @Hover.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHover;
-                @Hover.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHover;
-                @Hover.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHover;
-                @Aim.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
-                @Aim.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
-                @Aim.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
-            }
-            m_Wrapper.m_GameplayActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
-                @Melee.started += instance.OnMelee;
-                @Melee.performed += instance.OnMelee;
-                @Melee.canceled += instance.OnMelee;
-                @Ranged.started += instance.OnRanged;
-                @Ranged.performed += instance.OnRanged;
-                @Ranged.canceled += instance.OnRanged;
-                @Hover.started += instance.OnHover;
-                @Hover.performed += instance.OnHover;
-                @Hover.canceled += instance.OnHover;
-                @Aim.started += instance.OnAim;
-                @Aim.performed += instance.OnAim;
-                @Aim.canceled += instance.OnAim;
+                if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
+                {
+                    @Movement.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
+                    @Movement.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
+                    @Movement.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
+                    @Jump.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                    @Jump.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                    @Jump.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                    @Melee.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMelee;
+                    @Melee.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMelee;
+                    @Melee.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMelee;
+                    @Ranged.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRanged;
+                    @Ranged.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRanged;
+                    @Ranged.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRanged;
+                    @Hover.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHover;
+                    @Hover.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHover;
+                    @Hover.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHover;
+                    @Aim.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
+                    @Aim.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
+                    @Aim.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
+                }
+                m_Wrapper.m_GameplayActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @Movement.started += instance.OnMovement;
+                    @Movement.performed += instance.OnMovement;
+                    @Movement.canceled += instance.OnMovement;
+                    @Jump.started += instance.OnJump;
+                    @Jump.performed += instance.OnJump;
+                    @Jump.canceled += instance.OnJump;
+                    @Melee.started += instance.OnMelee;
+                    @Melee.performed += instance.OnMelee;
+                    @Melee.canceled += instance.OnMelee;
+                    @Ranged.started += instance.OnRanged;
+                    @Ranged.performed += instance.OnRanged;
+                    @Ranged.canceled += instance.OnRanged;
+                    @Hover.started += instance.OnHover;
+                    @Hover.performed += instance.OnHover;
+                    @Hover.canceled += instance.OnHover;
+                    @Aim.started += instance.OnAim;
+                    @Aim.performed += instance.OnAim;
+                    @Aim.canceled += instance.OnAim;
+                }
             }
         }
-    }
-    public GameplayActions @Gameplay => new GameplayActions(this);
-    public interface IGameplayActions
-    {
-        void OnMovement(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
-        void OnMelee(InputAction.CallbackContext context);
-        void OnRanged(InputAction.CallbackContext context);
-        void OnHover(InputAction.CallbackContext context);
-        void OnAim(InputAction.CallbackContext context);
+        public GameplayActions @Gameplay => new GameplayActions(this);
+        public interface IGameplayActions
+        {
+            void OnMovement(InputAction.CallbackContext context);
+            void OnJump(InputAction.CallbackContext context);
+            void OnMelee(InputAction.CallbackContext context);
+            void OnRanged(InputAction.CallbackContext context);
+            void OnHover(InputAction.CallbackContext context);
+            void OnAim(InputAction.CallbackContext context);
+        }
     }
 }

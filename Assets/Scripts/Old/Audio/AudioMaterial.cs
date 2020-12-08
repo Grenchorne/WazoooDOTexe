@@ -1,6 +1,6 @@
 using Sirenix.OdinInspector;
 
-namespace Adhaesii.WazoooDOTexe.Audio
+namespace Adhaesii.WazoooDOTexe.Old.Audio
 {
     public class AudioMaterial : SerializedMonoBehaviour
     {
