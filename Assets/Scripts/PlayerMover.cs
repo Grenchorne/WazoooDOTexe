@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
@@ -13,14 +14,21 @@ namespace Adhaesii.WazoooDOTexe
 
         [SerializeField]
         private JumpProcessor.Settings jumpSettings;
-        
+
         public bool IsHovering { get; private set; }
 
+        // components
         private Rigidbody2D RigidBody2D { get; set; }
         private Transform Transform { get; set; }
+        
+        // subscribe to these events
+        public event Action OnHover;
+        public event Action OnHoverEnd;
+        public event Action OnWalk;
+        public event Action OnWalkEnd;
 
+        // local members
         private JumpProcessor jumpProcessor;
-
         private Vector2 velocity;
 
         private void Awake()
@@ -53,9 +61,24 @@ namespace Adhaesii.WazoooDOTexe
             IsHovering = false;
         }
 
+        private bool isMoving;
         public void Move(float move)
         {
-            if (Mathf.Approximately(move, 0)) return;
+            bool wantsToMove = Mathf.Abs(move) > 0;
+            if (!isMoving && wantsToMove)
+            {
+                OnWalk?.Invoke();
+                isMoving = true;
+            }
+            
+            else if (isMoving && !wantsToMove)
+            {
+                OnWalkEnd?.Invoke();
+                isMoving = false;
+            }
+            
+            if (Mathf.Approximately(move, 0)) 
+                return;
             
             SetFacing(move);
 
@@ -78,9 +101,9 @@ namespace Adhaesii.WazoooDOTexe
         {
             jumpProcessor.ReleaseJump();
         }
-
+        
         public void Hover()
-        {
+        {    
             IsHovering = true;
             velocity.y = 0f;
         }

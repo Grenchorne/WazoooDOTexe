@@ -1,7 +1,8 @@
+using Adhaesii.WazoooDOTexe.Old;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Adhaesii.WazoooDOTexe.Old
+namespace Adhaesii.WazoooDOTexe
 {
     public class Breakable : SerializedMonoBehaviour, IReceiveDamage
     {

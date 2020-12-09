@@ -7,6 +7,8 @@ namespace Adhaesii.WazoooDOTexe
     {
         public bool IsJumping { get; private set; }
         public float JumpVelocity { get; private set; }
+
+        public event Action OnJump;
         
         private readonly Settings settings;
 
@@ -52,6 +54,10 @@ namespace Adhaesii.WazoooDOTexe
                 
                 // Set flag to held
                 IsJumping = true;
+                
+                //Invoke Jump Event
+                OnJump?.Invoke();
+                
                 return true;
             }
 
@@ -64,6 +70,10 @@ namespace Adhaesii.WazoooDOTexe
 
             // Apply the velocity
             JumpVelocity = settings.Speed;
+            
+            //Invoke Jump Event
+            OnJump?.Invoke();
+            
             return true;
         }
 

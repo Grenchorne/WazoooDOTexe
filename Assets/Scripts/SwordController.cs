@@ -1,11 +1,11 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Adhaesii.WazoooDOTexe.Old
+namespace Adhaesii.WazoooDOTexe
 {
     public class SwordController : SerializedMonoBehaviour
     {
-        [SerializeField] private string attackTrigger = "New Trigger";
+        [SerializeField] private string attackTrigger = "Swing";
         [SerializeField] private float cooldown = 0.27f;
 
         private Animator anim;

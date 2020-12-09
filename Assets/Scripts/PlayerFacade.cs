@@ -1,3 +1,4 @@
+using Adhaesii.WazoooDOTexe.Audio;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -15,6 +16,12 @@ namespace Adhaesii.WazoooDOTexe
         private FuelHandler FuelHandler { get; set; }
 
         private bool jumpCancelled;
+
+        [SerializeField, Required]
+        private SwordController swordController;
+
+        [SerializeField, Required]
+        private PlayerAudioController audioController;
         
         private void Awake()
         {
@@ -23,6 +30,11 @@ namespace Adhaesii.WazoooDOTexe
             RigidBody2D = GetComponent<Rigidbody2D>();
             GroundCheck = GetComponentInChildren<GroundCheck>();
             FuelHandler = GetComponent<FuelHandler>();
+        }
+
+        private void Start()
+        {
+            
         }
 
         private void FixedUpdate()
@@ -55,17 +67,16 @@ namespace Adhaesii.WazoooDOTexe
             {
                 Mover.ReleaseJump();
 
-                if (jumpCancelled) return;
-                
-                Mover.CancelJump();
-                jumpCancelled = true;
+                if (!jumpCancelled)
+                {
+                    Mover.CancelJump();
+                    jumpCancelled = true;
+                }
             }
 
-            
-            
-            
             // Check if can attack
-            
+            if(Input.Attack)
+                swordController.Attack();
         }
     }
 }

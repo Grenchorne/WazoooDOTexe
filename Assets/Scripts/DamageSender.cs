@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Adhaesii.WazoooDOTexe.Old
+namespace Adhaesii.WazoooDOTexe
 {
     public class DamageSender : SerializedMonoBehaviour
     {
