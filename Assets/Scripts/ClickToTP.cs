@@ -21,8 +21,10 @@ namespace Adhaesii.WazoooDOTexe
         private void Update()
         {
             if (!Input.GetKeyDown(k_key)) return;
-            
-            target.position = cam.ScreenToWorldPoint(Input.mousePosition);
+
+            Vector3 newPos = cam.ScreenToWorldPoint(Input.mousePosition);
+            newPos.z = 0f;
+            target.position = newPos;
                 
             if(target.TryGetComponent(out Rigidbody2D  rigidbody2D))
                 rigidbody2D.velocity = Vector2.zero;

@@ -1012,7 +1012,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ce7890c8b302e5e4aafcb6027b54e7cc, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!4 &649952405
 Transform:
@@ -1103,6 +1103,7 @@ MonoBehaviour:
     _cooldown: 0.2
     _holdTime: 0.15
     _coyoteTime: 0.15
+  disableHoverOnAscent: 1
 --- !u!114 &649952409
 MonoBehaviour:
   m_ObjectHideFlags: 0
