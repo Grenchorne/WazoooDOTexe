@@ -15,6 +15,9 @@ namespace Adhaesii.WazoooDOTexe
         [SerializeField]
         private JumpProcessor.Settings jumpSettings;
 
+        [SerializeField]
+        private bool disableHoverOnAscent = true;
+
         public bool IsHovering { get; private set; }
 
         // components
@@ -41,7 +44,8 @@ namespace Adhaesii.WazoooDOTexe
 
         private void Update()
         {
-            jumpProcessor.Tick(Time.deltaTime);
+            float deltaTime = Time.deltaTime;
+            jumpProcessor.Tick(deltaTime);
         }
 
         private void FixedUpdate()
@@ -99,7 +103,9 @@ namespace Adhaesii.WazoooDOTexe
         }
         
         public void Hover()
-        {    
+        {
+            if(disableHoverOnAscent && RigidBody2D.velocity.y > 0)
+                return;
             IsHovering = true;
             velocity.y = 0f;
         }
