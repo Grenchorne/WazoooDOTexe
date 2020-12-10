@@ -22,6 +22,9 @@ namespace Adhaesii.WazoooDOTexe
 
         [SerializeField, Required]
         private PlayerAudioController audioController;
+
+        [SerializeField]
+        private GameObject hoverGameObject;
         
         private void Awake()
         {
@@ -32,15 +35,31 @@ namespace Adhaesii.WazoooDOTexe
             FuelHandler = GetComponent<FuelHandler>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
+            Mover.OnWalk += audioController.ProcessFootsteps;
+            Mover.OnHover += audioController.ProcessHover;
+            Mover.OnHover += SetHoverFX;
+
+            swordController.OnSwing += audioController.PlayAttack;
+
+        }
+
+        private void OnDisable()
+        {
+            Mover.OnWalk -= audioController.ProcessFootsteps;
+            Mover.OnHover -= audioController.ProcessHover;
+            Mover.OnHover -= SetHoverFX;
             
+            swordController.OnSwing -= audioController.PlayAttack;
         }
 
         private void FixedUpdate()
         {   
-            // Check if can move
-            if (Input.Horizontal > 0 || Input.Horizontal < 0) Mover.Move(Input.Horizontal);
+            // xxx Check if can move
+            // xxx  // if (Input.Horizontal > 0 || Input.Horizontal < 0) Mover.Move(Input.Horizontal);
+            // Move anyway - we check for zero inside the PlayerMover
+            Mover.Move(Input.Horizontal);
             
             // Replenish fuel if grounded
             if (GroundCheck.IsGrounded || !Input.Hover)
@@ -78,5 +97,7 @@ namespace Adhaesii.WazoooDOTexe
             if(Input.Attack)
                 swordController.Attack();
         }
+
+        private void SetHoverFX(bool isHovering) => hoverGameObject.SetActive(isHovering);
     }
 }

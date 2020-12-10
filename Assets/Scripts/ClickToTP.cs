@@ -20,7 +20,15 @@ namespace Adhaesii.WazoooDOTexe
         private bool tp;
         private void Update()
         {
-            if (Input.GetKeyDown(k_key)) target.position = cam.ScreenToWorldPoint(Input.mousePosition);
+            if (!Input.GetKeyDown(k_key)) return;
+            
+            target.position = cam.ScreenToWorldPoint(Input.mousePosition);
+                
+            if(target.TryGetComponent(out Rigidbody2D  rigidbody2D))
+                rigidbody2D.velocity = Vector2.zero;
+                
+            else if (target.TryGetComponent(out Rigidbody rigidbody))
+                rigidbody.velocity = Vector3.zero;
         }
     }
 }

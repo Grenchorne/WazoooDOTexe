@@ -20,12 +20,11 @@ namespace Adhaesii.WazoooDOTexe
         // components
         private Rigidbody2D RigidBody2D { get; set; }
         private Transform Transform { get; set; }
+        private GroundCheck GroundCheck { get; set; }
         
         // subscribe to these events
-        public event Action OnHover;
-        public event Action OnHoverEnd;
-        public event Action OnWalk;
-        public event Action OnWalkEnd;
+        public event Action<bool> OnHover;
+        public event Action<bool> OnWalk;
 
         // local members
         private JumpProcessor jumpProcessor;
@@ -35,7 +34,8 @@ namespace Adhaesii.WazoooDOTexe
         {
             RigidBody2D = GetComponent<Rigidbody2D>();
             Transform = transform;
-            jumpProcessor = new JumpProcessor(jumpSettings, GetComponentInChildren<GroundCheck>(),
+            GroundCheck = GetComponentInChildren<GroundCheck>();
+            jumpProcessor = new JumpProcessor(jumpSettings, GroundCheck,
                 GetComponent<FuelHandler>());
         }
 
@@ -58,24 +58,20 @@ namespace Adhaesii.WazoooDOTexe
             
             // Reset movement variables
             velocity = Vector2.zero;
+            
+            // Invoke hover event  
+            OnHover?.Invoke(IsHovering);
+            
+            // Disable hover for next frame - this will be re-flagged by "Hover" if applicable
             IsHovering = false;
         }
 
-        private bool isMoving;
+        
         public void Move(float move)
         {
             bool wantsToMove = Mathf.Abs(move) > 0;
-            if (!isMoving && wantsToMove)
-            {
-                OnWalk?.Invoke();
-                isMoving = true;
-            }
             
-            else if (isMoving && !wantsToMove)
-            {
-                OnWalkEnd?.Invoke();
-                isMoving = false;
-            }
+            OnWalk?.Invoke(wantsToMove && !IsHovering && GroundCheck.IsGrounded);
             
             if (Mathf.Approximately(move, 0)) 
                 return;

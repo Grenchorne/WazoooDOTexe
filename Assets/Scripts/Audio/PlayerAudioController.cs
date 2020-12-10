@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -40,8 +41,6 @@ namespace Adhaesii.WazoooDOTexe.Audio
 
         [SerializeField]
         private AudioSource footstepsAudioSourcePrefab;
-
-        private bool  footstepsLooping, hoverLooping;
         
         private AudioSource AudioSource { get; set; }
 
@@ -51,12 +50,6 @@ namespace Adhaesii.WazoooDOTexe.Audio
         }
 
         private void Start()
-        {
-            StartCoroutine(HoverRoutine());
-            StartCoroutine(WalkRoutine());
-        }
-
-        private void OnEnable()
         {
             hoverAudioSource.volume = 0f;
             hoverAudioSource.Play();
@@ -78,125 +71,32 @@ namespace Adhaesii.WazoooDOTexe.Audio
             AudioSource.Play();
         }
 
-        private IEnumerator HoverRoutine()
+        public void ProcessHover(bool isHovering)
         {
-            bool wantsToRampUp = false;
-            bool wantsToRampDown = true;
-            float volumeTarget;
-
-            WaitForEndOfFrame wait = new WaitForEndOfFrame();
-            do
-            {
-//                if (hoverLooping)
-//                {
-//                    // lets ramp down
-//                    if (wantsToRampDown)
-//                    {
-//                        volumeTarget = 0f;
-//                        wantsToRampDown = false;
-//                    }
-//                    
-//                    // lets ramp up
-//                    else if (wantsToRampUp)
-//                    {
-//                        volumeTarget = 1;
-//                        wantsToRampUp = false;
-//                    }
-//                }
-//                
-                
-                yield return wait;
-            } while (true);
-            
-            
-            hoverAudioSource.volume = 1f;
-
-            
+            float sourceVolume = hoverAudioSource.volume;
+            hoverAudioSource.volume =
+                Mathf.Clamp01(sourceVolume + (Time.deltaTime / hoverRampTime * (isHovering ? 1 : -1)));
         }
 
-        
-        private IEnumerator WalkRoutine()
+        private float t_footstep;
+        public void ProcessFootsteps(bool playFootsteps)
         {
-            bool wantsToStart, wantsToStop;
-            float volumeTarget = 0;
-            
-            WaitForEndOfFrame wait = new WaitForEndOfFrame();
-            do
+            if (!playFootsteps)
             {
-                if (hoverAudioSource.volume < volumeTarget)
-                {
-                    
-                }
-                
-                hoverAudioSource.volume += Mathf.Clamp01(Time.deltaTime / hoverRampTime);
-                yield return wait;
-            } while (hoverAudioSource.volume <= 1);
-            
-            yield return null;
-        }
-
-        public void StartHover()
-        {
-            StopAllCoroutines();
-            
-            hoverAudioSource.volume = 0f;
-
-            // Fade in
-            StartCoroutine(_());
-
-            IEnumerator _()
-            {
-                WaitForEndOfFrame wait = new WaitForEndOfFrame();
-                do
-                {
-                    hoverAudioSource.volume += Mathf.Clamp01(Time.deltaTime / hoverRampTime);
-                    yield return wait;
-                } while (hoverAudioSource.volume <= 1);
-            }
-        }
-
-        private void StopHover()
-        {
-            hoverLooping = false;
-            return;
-            StopAllCoroutines();
-            
-            hoverAudioSource.volume = 1f;
-
-            // Fade out
-            StartCoroutine(_());
-
-            IEnumerator _()
-            {
-                WaitForEndOfFrame wait = new WaitForEndOfFrame();
-                do
-                {
-                    hoverAudioSource.volume -= Mathf.Clamp01(Time.deltaTime / hoverRampTime);
-                    yield return wait;
-                } while (hoverAudioSource.volume >= 1);
+                t_footstep = 0; // always return to 0 so that a footstep plays at the start of each walk cycle
+                return;
             }
 
-        }
-
-        public void StartFootsteps()
-        {
-            footstepsLooping = true;
-            
-            // Loop footsteps
-            IEnumerator _()
+            if (t_footstep > 0)
             {
-                WaitForSeconds wait = new WaitForSeconds(footstepsInterval); 
-                do
-                {
-                    AudioSource footstepSource = Instantiate(footstepsAudioSourcePrefab).GetComponent<AudioSource>();
-                    footstepSource.PlayRandom(footsteps, minPitch, maxPitch);
-                    Destroy(footstepSource.gameObject, 2);
-                    
-                    yield return wait;
-                } while (footstepsLooping);
+                t_footstep -= Time.deltaTime; // we can get away with this here because it's called every frame, but not advisable
+                return;
             }
-        }
 
-        private void StopFootsteps() => footstepsLooping = false;
+            AudioSource footstepSource = Instantiate(footstepsAudioSourcePrefab).GetComponent<AudioSource>();
+            footstepSource.PlayRandom(footsteps, minPitch, maxPitch);
+            Destroy(footstepSource.gameObject, 2);
+            t_footstep = footstepsInterval;
+        }
     }
 }

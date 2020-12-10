@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ namespace Adhaesii.WazoooDOTexe
     {
         [SerializeField] private string attackTrigger = "Swing";
         [SerializeField] private float cooldown = 0.27f;
+
+        public event Action OnSwing;
 
         private Animator anim;
 
@@ -24,6 +27,7 @@ namespace Adhaesii.WazoooDOTexe
             if (t_cooldown > 0)
                 return;
 
+            OnSwing?.Invoke();
             t_cooldown = cooldown;
             anim.SetTrigger(h_attack);
         }
