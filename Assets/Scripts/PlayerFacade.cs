@@ -25,6 +25,14 @@ namespace Adhaesii.WazoooDOTexe
 
         [SerializeField]
         private GameObject hoverGameObject;
+
+        [SerializeField]
+        private PlayerVerticalPeek.Settings peekSettings;
+
+        [SerializeField]
+        private Transform peekTransform;
+        
+        private PlayerVerticalPeek peek;
         
         private void Awake()
         {
@@ -33,6 +41,9 @@ namespace Adhaesii.WazoooDOTexe
             RigidBody2D = GetComponent<Rigidbody2D>();
             GroundCheck = GetComponentInChildren<GroundCheck>();
             FuelHandler = GetComponent<FuelHandler>();
+            
+            peek = new PlayerVerticalPeek(peekSettings);
+            peekTransform.SetParent(transform);
         }
 
         private void OnEnable()
@@ -42,7 +53,6 @@ namespace Adhaesii.WazoooDOTexe
             Mover.OnHover += SetHoverFX;
 
             swordController.OnSwing += audioController.PlayAttack;
-
         }
 
         private void OnDisable()
@@ -52,6 +62,11 @@ namespace Adhaesii.WazoooDOTexe
             Mover.OnHover -= SetHoverFX;
             
             swordController.OnSwing -= audioController.PlayAttack;
+        }
+
+        private void Update()
+        {
+            peekTransform.localPosition = new Vector3(0, peek.ProcessPeek(Input.Peek, Time.deltaTime));
         }
 
         private void FixedUpdate()

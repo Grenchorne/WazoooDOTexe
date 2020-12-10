@@ -16,18 +16,24 @@ namespace Adhaesii.WazoooDOTexe
 
         [SerializeField]
         private string hoverAxis = "Fire3";
+
+        [SerializeField]
+        private string peekAxis = "Vertical";
         
         public float Horizontal { get; private set; }
         public bool Jump { get; private set; }
         public bool Attack { get; private set; }
         public bool Hover { get; private set; }
+        
+        public float Peek { get; private set; }
 
         private void Update()
         {
             Horizontal = Input.GetAxisRaw(horizontalAxis);
             Jump = Input.GetAxis(jumpAxis) > 0;
             Attack = Input.GetAxis(attackAxis) > 0;
-            Hover = Input.GetAxis(hoverAxis) > 0; 
+            Hover = Input.GetAxis(hoverAxis) > 0;
+            Peek = Input.GetAxis(peekAxis);
         }
     }
 }

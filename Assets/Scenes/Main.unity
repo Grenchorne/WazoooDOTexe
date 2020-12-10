@@ -1075,6 +1075,7 @@ MonoBehaviour:
   jumpAxis: Jump
   attackAxis: Fire1
   hoverAxis: Fire3
+  peekAxis: Vertical
 --- !u!114 &649952408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1126,6 +1127,11 @@ MonoBehaviour:
   swordController: {fileID: 1755974666}
   audioController: {fileID: 1681868105}
   hoverGameObject: {fileID: 1128180949}
+  peekSettings:
+    _distance: 10
+    _delay: 0.4
+    _acceleration: 50
+  peekTransform: {fileID: 2079879655}
 --- !u!114 &649952410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10235,8 +10241,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 649952405}
-  m_Follow: {fileID: 649952405}
+  m_LookAt: {fileID: 2079879655}
+  m_Follow: {fileID: 2079879655}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 7.5
@@ -11554,7 +11560,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2079879655}
   m_Layer: 0
-  m_Name: LookAhead
+  m_Name: CamTarget
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
