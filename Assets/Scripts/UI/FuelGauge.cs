@@ -2,23 +2,23 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Adhaesii.WazoooDOTexe.Old.UI
+namespace Adhaesii.WazoooDOTexe.UI
 {
-    [RequireComponent(typeof(Slider))]
+    [RequireComponent(typeof(MaskSlider))]
     public class FuelGauge : SerializedMonoBehaviour
     {
         [SerializeField] private FuelHandler _fuelHandler;
 
-        private Slider slider;
+        private MaskSlider slider;
 
         private void Awake()
         {
-            slider = GetComponent<Slider>();
+            slider = GetComponent<MaskSlider>();
         }
 
         private void Update()
         {
-            slider.value = _fuelHandler.Fuel;
+            slider.Value = _fuelHandler.Fuel;
         }
     }
 }
