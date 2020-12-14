@@ -66,7 +66,7 @@ namespace Adhaesii.WazoooDOTexe
 
         private void Update()
         {
-            peekTransform.localPosition = new Vector3(0, peek.ProcessPeek(Input.Peek, Time.deltaTime));
+            peekTransform.localPosition = new Vector3(0, peek.ProcessPeek(Input.Peek, Mover.IsMoving, Time.deltaTime));
         }
 
         private void FixedUpdate()

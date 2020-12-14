@@ -16,11 +16,11 @@ namespace Adhaesii.WazoooDOTexe
         private float pos;
         private bool inputLastFrame;
         
-        public float ProcessPeek(float input, float deltaTime)
+        public float ProcessPeek(float input, bool isMoving, float deltaTime)
         {
             float target = 0f;
             // Escape if no input
-            if (Mathf.Approximately(input, 0))
+            if (Mathf.Approximately(input, 0) || isMoving)
             {
                 inputLastFrame = false;
                 return processPos_();
