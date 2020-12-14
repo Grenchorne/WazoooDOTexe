@@ -1,0 +1,600 @@
+fileFormatVersion: 2
+guid: de7d07594c3e90345a732f251f13186b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2334199836446944581
+    second: brawlbot_abdomen
+  - first:
+      213: 4453864464546743058
+    second: brawlbot_arm_fist_l
+  - first:
+      213: 2382363565761233669
+    second: brawlbot_arm_fist_r
+  - first:
+      213: 5034236397381280270
+    second: brawlbot_arm_fore_l
+  - first:
+      213: -959830675096285922
+    second: brawlbot_arm_fore_r
+  - first:
+      213: 3569200042239046882
+    second: brawlbot_arm_upper_l
+  - first:
+      213: 4068207284456952500
+    second: brawlbot_arm_upper_r
+  - first:
+      213: -1854800299564284332
+    second: brawlbot_chest
+  - first:
+      213: -7546695592107724509
+    second: brawlbot_collar
+  - first:
+      213: -160952799252932722
+    second: brawlbot_head
+  - first:
+      213: 4637294046694045099
+    second: brawlbot_leg_foot_l
+  - first:
+      213: -2830485202933536719
+    second: brawlbot_leg_foot_r
+  - first:
+      213: -1103068401653290721
+    second: brawlbot_leg_knee_l
+  - first:
+      213: 1383284770953810954
+    second: brawlbot_leg_knee_r
+  - first:
+      213: -6441828238769461685
+    second: brawlbot_leg_shin_l
+  - first:
+      213: 4071548347404667125
+    second: brawlbot_leg_shin_r
+  - first:
+      213: -3065262917658220679
+    second: brawlbot_leg_thigh_l
+  - first:
+      213: -2104711339881117015
+    second: brawlbot_leg_thigh_r
+  - first:
+      213: -3109281752483118266
+    second: brawlbot_pelvis
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: 2
+    mipBias: -100
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 1
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: brawlbot_abdomen
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 1299
+        width: 323
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54de136526eb46020800000000000000
+      internalID: 2334199836446944581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_arm_fist_l
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 840
+        width: 274
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2134b07022e4fcd30800000000000000
+      internalID: 4453864464546743058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_arm_fist_r
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 978
+        width: 274
+        height: 260
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 503080f6a0bdf0120800000000000000
+      internalID: 2382363565761233669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_arm_fore_l
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 808
+        width: 266
+        height: 231
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e02e045b4533dd540800000000000000
+      internalID: 5034236397381280270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_arm_fore_r
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 568
+        width: 227
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1dcc5e161ffda2f0800000000000000
+      internalID: -959830675096285922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_arm_upper_l
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 53
+        width: 203
+        height: 289
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e4b7f92788588130800000000000000
+      internalID: 3569200042239046882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_arm_upper_r
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 595
+        width: 257
+        height: 381
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b296be88fc257830800000000000000
+      internalID: 4068207284456952500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_chest
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1613
+        width: 496
+        height: 433
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 456ce2764fc6246e0800000000000000
+      internalID: -1854800299564284332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_collar
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1476
+        width: 340
+        height: 339
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 321b964d750c44790800000000000000
+      internalID: -7546695592107724509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_head
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1041
+        width: 308
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e879ce6284e24cdf0800000000000000
+      internalID: -160952799252932722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_leg_foot_l
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1400
+        width: 334
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba57b34bd5afa5040800000000000000
+      internalID: 4637294046694045099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_leg_foot_r
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 1240
+        width: 294
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 138a52954b818b8d0800000000000000
+      internalID: -2830485202933536719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_leg_knee_l
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 625
+        width: 252
+        height: 213
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f196f7c022d11b0f0800000000000000
+      internalID: -1103068401653290721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_leg_knee_r
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 1052
+        width: 279
+        height: 245
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a04d8e39b2a623310800000000000000
+      internalID: 1383284770953810954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_leg_shin_l
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 77
+        width: 203
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b46e01cd8570a96a0800000000000000
+      internalID: -6441828238769461685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_leg_shin_r
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 344
+        width: 210
+        height: 222
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f842e466ab018830800000000000000
+      internalID: 4071548347404667125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_leg_thigh_l
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 463
+        width: 221
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 977edc9ed9ff575d0800000000000000
+      internalID: -3065262917658220679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_leg_thigh_r
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 263
+        width: 198
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aa46a700309ac2e0800000000000000
+      internalID: -2104711339881117015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brawlbot_pelvis
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1817
+        width: 386
+        height: 229
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 643c3a448bc99d4d0800000000000000
+      internalID: -3109281752483118266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

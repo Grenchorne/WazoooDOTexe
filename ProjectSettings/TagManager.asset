@@ -53,3 +53,6 @@ TagManager:
   - name: Foreground
     uniqueID: 380051221
     locked: 0
+  - name: FX
+    uniqueID: 563793919
+    locked: 0

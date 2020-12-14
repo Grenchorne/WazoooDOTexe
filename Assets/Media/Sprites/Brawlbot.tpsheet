@@ -1,0 +1,29 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# Sprite sheet: Brawlbot.png (1024 x 2048)
+# $TexturePacker:SmartUpdate:842972e9f85bdba95ef844985be29213:7344d04916f300256f1123363fd4f6d8:51699f2be5bf423bfbd7b7c2dacaf3eb$
+#
+
+brawlbot_abdomen;338;1299;323;175;0.5;0.5
+brawlbot_arm_fist_l;312;840;274;210;0.5;0.5
+brawlbot_arm_fist_r;593;978;274;260;0.5;0.5
+brawlbot_arm_fore_l;2;808;266;231;0.5;0.5
+brawlbot_arm_fore_r;2;568;227;238;0.5;0.5
+brawlbot_arm_upper_l;2;53;203;289;0.5;0.5
+brawlbot_arm_upper_r;588;595;257;381;0.5;0.5
+brawlbot_chest;2;1613;496;433;0.5;0.5
+brawlbot_collar;500;1476;340;339;0.5;0.5
+brawlbot_head;2;1041;308;357;0.5;0.5
+brawlbot_leg_foot_l;2;1400;334;211;0.5;0.5
+brawlbot_leg_foot_r;663;1240;294;234;0.5;0.5
+brawlbot_leg_knee_l;270;625;252;213;0.5;0.5
+brawlbot_leg_knee_r;312;1052;279;245;0.5;0.5
+brawlbot_leg_shin_l;207;77;203;265;0.5;0.5
+brawlbot_leg_shin_r;2;344;210;222;0.5;0.5
+brawlbot_leg_thigh_l;231;463;221;160;0.5;0.5
+brawlbot_leg_thigh_r;412;263;198;198;0.5;0.5
+brawlbot_pelvis;500;1817;386;229;0.5;0.5

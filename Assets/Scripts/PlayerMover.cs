@@ -19,18 +19,22 @@ namespace Adhaesii.WazoooDOTexe
         private bool disableHoverOnAscent = true;
 
         public bool IsHovering { get; private set; }
+        public bool IsMoving { get; private set; }
 
         // components
         private Rigidbody2D RigidBody2D { get; set; }
         private Transform Transform { get; set; }
         private GroundCheck GroundCheck { get; set; }
         
+        public  JumpProcessor JumpProcessor { get; set; }
+        
         // subscribe to these events
         public event Action<bool> OnHover;
         public event Action<bool> OnWalk;
 
+        public event Action OnIdle; 
+
         // local members
-        private JumpProcessor jumpProcessor;
         private Vector2 velocity;
 
         private void Awake()
@@ -38,20 +42,20 @@ namespace Adhaesii.WazoooDOTexe
             RigidBody2D = GetComponent<Rigidbody2D>();
             Transform = transform;
             GroundCheck = GetComponentInChildren<GroundCheck>();
-            jumpProcessor = new JumpProcessor(jumpSettings, GroundCheck,
+            JumpProcessor = new JumpProcessor(jumpSettings, GroundCheck,
                 GetComponent<FuelHandler>());
         }
 
         private void Update()
         {
             float deltaTime = Time.deltaTime;
-            jumpProcessor.Tick(deltaTime);
+            JumpProcessor.Tick(deltaTime);
         }
 
         private void FixedUpdate()
         {
             // Get initial velocity - use our prescribed value if jumping or hovering
-            if (!jumpProcessor.IsJumping && !IsHovering)
+            if (!JumpProcessor.IsJumping && !IsHovering)
                 velocity.y = RigidBody2D.velocity.y;
 
             // Disable gravity if hovering
@@ -59,6 +63,8 @@ namespace Adhaesii.WazoooDOTexe
 
             // Apply movement
             RigidBody2D.velocity = velocity;
+
+            IsMoving = !Mathf.Approximately(velocity.x, 0);
             
             // Reset movement variables
             velocity = Vector2.zero;
@@ -87,19 +93,19 @@ namespace Adhaesii.WazoooDOTexe
 
         public void Jump()
         {
-            if (!jumpProcessor.TryJump(IsHovering)) return;
-            velocity.y = jumpProcessor.JumpVelocity;
+            if (!JumpProcessor.TryJump(IsHovering)) return;
+            velocity.y = JumpProcessor.JumpVelocity;
         }
         
         public void CancelJump()
         {
-            if(jumpProcessor.CancelJump(RigidBody2D.velocity.y))
+            if(JumpProcessor.CancelJump(RigidBody2D.velocity.y))
                 RigidBody2D.velocity = new Vector2(RigidBody2D.velocity.x, 0f);
         }
 
         public void ReleaseJump()
         {
-            jumpProcessor.ReleaseJump();
+            JumpProcessor.ReleaseJump();
         }
         
         public void Hover()

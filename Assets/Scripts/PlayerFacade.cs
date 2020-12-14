@@ -24,7 +24,7 @@ namespace Adhaesii.WazoooDOTexe
         private PlayerAudioController audioController;
 
         [SerializeField]
-        private GameObject hoverGameObject;
+        private GameObject[] hoverGameObjects;
 
         [SerializeField]
         private PlayerVerticalPeek.Settings peekSettings;
@@ -113,6 +113,10 @@ namespace Adhaesii.WazoooDOTexe
                 swordController.Attack();
         }
 
-        private void SetHoverFX(bool isHovering) => hoverGameObject.SetActive(isHovering);
+        private void SetHoverFX(bool isHovering)
+        {
+            foreach (var go in hoverGameObjects)
+                go.SetActive(isHovering);
+        }
     }
 }
