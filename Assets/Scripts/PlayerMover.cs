@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 
 namespace Adhaesii.WazoooDOTexe
@@ -76,6 +77,18 @@ namespace Adhaesii.WazoooDOTexe
             IsHovering = false;
         }
 
+        public void SetMovement(bool active)
+        {    
+            enabled = active;
+            
+            if (active)
+                return;
+            
+            // clean some stuff up if inactive
+
+            IsMoving = false;
+            IsHovering = false;
+        }
         
         public void Move(float move)
         {

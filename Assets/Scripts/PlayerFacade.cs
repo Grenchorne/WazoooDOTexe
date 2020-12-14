@@ -14,6 +14,8 @@ namespace Adhaesii.WazoooDOTexe
         private GroundCheck GroundCheck { get; set; }
         
         private FuelHandler FuelHandler { get; set; }
+        
+        private HealthController HealthController { get; set; }
 
         private bool jumpCancelled;
 
@@ -41,6 +43,7 @@ namespace Adhaesii.WazoooDOTexe
             RigidBody2D = GetComponent<Rigidbody2D>();
             GroundCheck = GetComponentInChildren<GroundCheck>();
             FuelHandler = GetComponent<FuelHandler>();
+            HealthController = GetComponent<HealthController>();
             
             peek = new PlayerVerticalPeek(peekSettings);
             peekTransform.SetParent(transform);
@@ -53,6 +56,9 @@ namespace Adhaesii.WazoooDOTexe
             Mover.OnHover += SetHoverFX;
 
             swordController.OnSwing += audioController.PlayAttack;
+
+            HealthController.OnDamage += audioController.PlayHit;
+            HealthController.OnDie += audioController.PlayDie;
         }
 
         private void OnDisable()
@@ -62,6 +68,9 @@ namespace Adhaesii.WazoooDOTexe
             Mover.OnHover -= SetHoverFX;
             
             swordController.OnSwing -= audioController.PlayAttack;
+            
+            HealthController.OnDamage -= audioController.PlayHit;
+            HealthController.OnDie -= audioController.PlayDie;
         }
 
         private void Update()

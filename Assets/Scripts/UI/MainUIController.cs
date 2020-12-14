@@ -12,6 +12,9 @@ namespace Adhaesii.WazoooDOTexe.UI
         [SerializeField]
         private float timeout = 15f;
 
+        [SerializeField]
+        private Mode _startingMode = Mode.Gameplay;
+
         [SerializeField, Required]
         private CanvasGroup mainMenu;
 
@@ -26,7 +29,7 @@ namespace Adhaesii.WazoooDOTexe.UI
 
         private Mode mode = Mode.Title;
 
-        private void Start() => ChangeMode(mode);
+        private void Start() => ChangeMode(mode = _startingMode);
 
         private void Update()
         {

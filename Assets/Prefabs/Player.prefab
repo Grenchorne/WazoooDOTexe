@@ -2401,6 +2401,7 @@ GameObject:
   - component: {fileID: 3503279998574797069}
   - component: {fileID: 3503279998574797056}
   - component: {fileID: 1823892157}
+  - component: {fileID: 7064269969742755504}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -2600,6 +2601,31 @@ MonoBehaviour:
     h_jump: Jump
     h_idle: IsIdling
     h_melee: Melee
+--- !u!114 &7064269969742755504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503279998574797064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30efb77482cf3a4cbd56ef225f47890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  startingHealth: 4
+  _maxHealth: 4
+  cooldownBetweenHits: 0.5
+  damageBounceForce: 15
 --- !u!61 &8925308846595482651
 BoxCollider2D:
   m_ObjectHideFlags: 0

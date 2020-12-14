@@ -9,13 +9,13 @@ namespace Adhaesii.WazoooDOTexe
         {
             if (other.TryGetComponent(out IReceiveDamage dmg))
             {
-                dmg.Damage();
+                dmg.Damage(gameObject);
             }
         }
     }
 
     public interface IReceiveDamage
     {
-        void Damage();
+        void Damage(GameObject source);
     }
 }

@@ -44,5 +44,14 @@ namespace Adhaesii.WazoooDOTexe.Audio
             audioSource.clip = clips[Random.Range(0, clips.Length - 1)];
             audioSource.Play();
         }
+
+        public static void PlayRandomSpawn(AudioSource audioSource, float lifetime, AudioClip[] clips, float minPitch = 1f, float maxPitch = 1f)
+        {
+            var newSource = Object.Instantiate(audioSource);
+            
+            newSource.PlayRandom(clips, minPitch, maxPitch);
+            
+            Object.Destroy(newSource.gameObject, lifetime);
+        }
     }
 }

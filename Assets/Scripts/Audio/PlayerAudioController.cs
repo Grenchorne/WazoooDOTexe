@@ -41,13 +41,17 @@ namespace Adhaesii.WazoooDOTexe.Audio
 
         [SerializeField]
         private AudioSource footstepsAudioSourcePrefab;
+
+        [TitleGroup("Health Audio")]
+        [SerializeField]
+        private AudioClip[] hitClips;
+        
+        [SerializeField]
+        private AudioClip[] deathClips;
         
         private AudioSource AudioSource { get; set; }
 
-        private void Awake()
-        {
-            AudioSource = GetComponent<AudioSource>();
-        }
+        private void Awake() => AudioSource = GetComponent<AudioSource>();
 
         private void Start()
         {
@@ -55,27 +59,27 @@ namespace Adhaesii.WazoooDOTexe.Audio
             hoverAudioSource.Play();
         }
 
-        public void PlayJump()
-        {
-            if(!jump)
-                return;
-            AudioSource.PlayRandom(new []{jump}, 0.9f, 1.1f);
-            AudioSource.Play();
-        }
+        public void PlayJump() => PlayOneShot(new []{jump}, jump != null);
 
-        public void PlayAttack()
-        {
-            if(!attack)
-                return;
-            AudioSource.PlayRandom(new []{attack}, 0.9f, 1.1f);
-            AudioSource.Play();
-        }
+        public void PlayAttack() => PlayOneShot(new []{attack}, attack != null);
+
+        public void PlayHit() => PlayOneShot(hitClips, hitClips != null);
+
+        public void PlayDie() => PlayOneShot(deathClips, deathClips != null);
+
 
         public void ProcessHover(bool isHovering)
         {
             float sourceVolume = hoverAudioSource.volume;
             hoverAudioSource.volume =
                 Mathf.Clamp01(sourceVolume + (Time.deltaTime / hoverRampTime * (isHovering ? 1 : -1)));
+        }
+
+        private void PlayOneShot(AudioClip[] clips, bool playCondition = true, float minPitch = 0.9f, float maxPitch = 1.1f)
+        {
+            if(!playCondition)
+                return;
+            AudioSource.PlayRandom(clips, minPitch, maxPitch);
         }
 
         private float t_footstep;
