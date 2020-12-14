@@ -153,4 +153,6 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  breakAction: 2
   breakFX: {fileID: 1591741444877899541, guid: dab17bc06d99f994cbd3674e044512de, type: 3}
+  useHealth: 0

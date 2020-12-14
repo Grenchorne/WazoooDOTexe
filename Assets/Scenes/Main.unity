@@ -10852,6 +10852,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1341776066, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
+      propertyPath: _canHover
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341776066, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
+      propertyPath: _canAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341776066, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
+      propertyPath: _canHoverJump
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341776066, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1823892157, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
       propertyPath: serializationData.Prefab
       value: 

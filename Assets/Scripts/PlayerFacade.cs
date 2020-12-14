@@ -16,6 +16,8 @@ namespace Adhaesii.WazoooDOTexe
         private FuelHandler FuelHandler { get; set; }
         
         private HealthController HealthController { get; set; }
+        
+        private PlayerAbilityUnlockHandler Abilities { get; set; }
 
         private bool jumpCancelled;
 
@@ -44,6 +46,7 @@ namespace Adhaesii.WazoooDOTexe
             GroundCheck = GetComponentInChildren<GroundCheck>();
             FuelHandler = GetComponent<FuelHandler>();
             HealthController = GetComponent<HealthController>();
+            Abilities = GetComponent<PlayerAbilityUnlockHandler>();
             
             peek = new PlayerVerticalPeek(peekSettings);
             peekTransform.SetParent(transform);
@@ -52,10 +55,12 @@ namespace Adhaesii.WazoooDOTexe
         private void OnEnable()
         {
             //Mover.OnWalk += audioController.ProcessFootsteps;
+            
             Mover.OnHover += audioController.ProcessHover;
             Mover.OnHover += SetHoverFX;
-
+            
             swordController.OnSwing += audioController.PlayAttack;
+
 
             HealthController.OnDamage += audioController.PlayHit;
             HealthController.OnDie += audioController.PlayDie;
@@ -92,7 +97,7 @@ namespace Adhaesii.WazoooDOTexe
             }
 
             // Check if can hover -- ensure this is set before jump because a jump-hover depletes fuel
-            else if (Input.Hover && FuelHandler.Fuel > 0)
+            else if (Abilities.CanHover && Input.Hover && FuelHandler.Fuel > 0)
             {
                 Mover.Hover();
                 FuelHandler.EnableDepletion();
@@ -101,9 +106,8 @@ namespace Adhaesii.WazoooDOTexe
             // Check if can jump
             if (Input.Jump)
             {
-                Mover.Jump();
+                Mover.Jump(Abilities.CanHoverJump);
                 jumpCancelled = false;
-
             }
 
             else
@@ -118,7 +122,7 @@ namespace Adhaesii.WazoooDOTexe
             }
 
             // Check if can attack
-            if(Input.Attack)
+            if(Input.Attack && Abilities.CanAttack)
                 swordController.Attack();
         }
 

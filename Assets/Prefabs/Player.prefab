@@ -1918,7 +1918,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.91
+  m_Radius: 1.4
 --- !u!212 &4669466928781164092
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2088,6 +2088,10 @@ MonoBehaviour:
   minPitch: 0.9
   maxPitch: 1.1
   footstepsAudioSourcePrefab: {fileID: 5419271132994270505, guid: 87811018d4ee3ba459b7aa063ff00068, type: 3}
+  hitClips:
+  - {fileID: 8300000, guid: a5406be214f159a4abfedff134037b3d, type: 3}
+  deathClips:
+  - {fileID: 8300000, guid: 9b49110fde0b1c44c8ede97afef653a4, type: 3}
 --- !u!82 &3503279997459241168
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2402,6 +2406,8 @@ GameObject:
   - component: {fileID: 3503279998574797056}
   - component: {fileID: 1823892157}
   - component: {fileID: 7064269969742755504}
+  - component: {fileID: 9015075100487749645}
+  - component: {fileID: 1341776066}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -2626,6 +2632,58 @@ MonoBehaviour:
   _maxHealth: 4
   cooldownBetweenHits: 0.5
   damageBounceForce: 15
+  damageBounceForceMode: 1
+  damageLocksMovement: 1
+  damageBounceMovementDisableCooldown: 0.075
+--- !u!114 &9015075100487749645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503279998574797064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79fa49c1f52cb874ab8ded2fbcb59f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  breakAction: 0
+  breakFX: {fileID: 1591741444877899541, guid: dab17bc06d99f994cbd3674e044512de, type: 3}
+  useHealth: 1
+--- !u!114 &1341776066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503279998574797064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb66d528181d58d4790dd5fab10fd325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  _canJump: 1
+  _canHover: 0
+  _canHoverJump: 0
+  _canAttack: 0
 --- !u!61 &8925308846595482651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2868,13 +2926,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45eb415d6052d3e49a86a9f3f50265fa, type: 3}
---- !u!4 &2904952631229496018 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2041012255277308099, guid: 45eb415d6052d3e49a86a9f3f50265fa, type: 3}
-  m_PrefabInstance: {fileID: 3747934783229977105}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5989402727840158776 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7430364202242143785, guid: 45eb415d6052d3e49a86a9f3f50265fa, type: 3}
+  m_PrefabInstance: {fileID: 3747934783229977105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2904952631229496018 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2041012255277308099, guid: 45eb415d6052d3e49a86a9f3f50265fa, type: 3}
   m_PrefabInstance: {fileID: 3747934783229977105}
   m_PrefabAsset: {fileID: 0}

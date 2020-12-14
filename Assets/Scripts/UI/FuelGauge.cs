@@ -1,3 +1,4 @@
+using System.Collections;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,12 @@ namespace Adhaesii.WazoooDOTexe.UI
         private void Awake()
         {
             slider = GetComponent<MaskSlider>();
+            
+            var abHandler =FindObjectOfType<PlayerAbilityUnlockHandler>();
+
+            if (abHandler.CanHover) return;
+            gameObject.SetActive(false);
+            abHandler.OnUnlockHover += () => gameObject.SetActive(true);
         }
 
         private void Update()

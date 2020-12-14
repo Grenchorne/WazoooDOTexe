@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 7265813882271275431}
   - component: {fileID: 7265813882271275428}
   - component: {fileID: 7265813882271275429}
+  - component: {fileID: 4960239954822859184}
   m_Layer: 8
   m_Name: Enemy_Slime
   m_TagString: Untagged
@@ -373,6 +374,30 @@ MonoBehaviour:
   damageBounceForceMode: 1
   damageLocksMovement: 0
   damageBounceMovementDisableCooldown: 0.075
+--- !u!114 &4960239954822859184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7265813882271275427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79fa49c1f52cb874ab8ded2fbcb59f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  breakAction: 0
+  breakFX: {fileID: 1591741444877899541, guid: dab17bc06d99f994cbd3674e044512de, type: 3}
+  useHealth: 1
 --- !u!1001 &7265813881019270562
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ namespace Adhaesii.WazoooDOTexe
         private Rigidbody2D RigidBody2D { get; set; }
         private Transform Transform { get; set; }
         private GroundCheck GroundCheck { get; set; }
-        
+
         public  JumpProcessor JumpProcessor { get; set; }
         
         // subscribe to these events
@@ -45,6 +45,7 @@ namespace Adhaesii.WazoooDOTexe
             GroundCheck = GetComponentInChildren<GroundCheck>();
             JumpProcessor = new JumpProcessor(jumpSettings, GroundCheck,
                 GetComponent<FuelHandler>());
+            
         }
 
         private void Update()
@@ -104,9 +105,9 @@ namespace Adhaesii.WazoooDOTexe
             velocity.x = move * moveSpeed;
         }
 
-        public void Jump()
+        public void Jump(bool canHoverJump)
         {
-            if (!JumpProcessor.TryJump(IsHovering)) return;
+            if (!JumpProcessor.TryJump(IsHovering && canHoverJump)) return;
             velocity.y = JumpProcessor.JumpVelocity;
         }
         
