@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 122826122}
   - component: {fileID: 122826123}
   - component: {fileID: 6825610327444869731}
-  - component: {fileID: 7419995139905453597}
   m_Layer: 0
   m_Name: brawlbot_leg_foot_l
   m_TagString: Untagged
@@ -194,35 +193,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.94, y: 2.34}
   m_EdgeRadius: 0
---- !u!114 &7419995139905453597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122826121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d10b91b1060ec544b0d48897b81c530, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  footsteps:
-  - {fileID: 8300000, guid: 11f857f98d2cdca43a4a12bf39fc6621, type: 3}
-  - {fileID: 8300000, guid: 4f8da757f81832d4b9e6c054ede7400e, type: 3}
-  - {fileID: 8300000, guid: 56ec4e1055dfa8e45a721b25ed6a8082, type: 3}
-  groundTag: Ground
-  footstepsAudioSourcePrefab: {fileID: 3511576755904425344, guid: 87811018d4ee3ba459b7aa063ff00068, type: 3}
-  minPitch: 0.9
-  maxPitch: 1.1
 --- !u!1 &236112192
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +870,6 @@ GameObject:
   - component: {fileID: 1463327548}
   - component: {fileID: 1463327549}
   - component: {fileID: 5317207449615068751}
-  - component: {fileID: 1807113836735366784}
   m_Layer: 0
   m_Name: brawlbot_leg_foot_r
   m_TagString: Untagged
@@ -1000,35 +969,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.94, y: 2.34}
   m_EdgeRadius: 0
---- !u!114 &1807113836735366784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463327547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d10b91b1060ec544b0d48897b81c530, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  footsteps:
-  - {fileID: 8300000, guid: 11f857f98d2cdca43a4a12bf39fc6621, type: 3}
-  - {fileID: 8300000, guid: 4f8da757f81832d4b9e6c054ede7400e, type: 3}
-  - {fileID: 8300000, guid: 56ec4e1055dfa8e45a721b25ed6a8082, type: 3}
-  groundTag: Ground
-  footstepsAudioSourcePrefab: {fileID: 3511576755904425344, guid: 87811018d4ee3ba459b7aa063ff00068, type: 3}
-  minPitch: 0.9
-  maxPitch: 1.1
 --- !u!1 &1519692446
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,7 +2024,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 11f857f98d2cdca43a4a12bf39fc6621, type: 3}
   - {fileID: 8300000, guid: 4f8da757f81832d4b9e6c054ede7400e, type: 3}
   - {fileID: 8300000, guid: 56ec4e1055dfa8e45a721b25ed6a8082, type: 3}
-  footstepsInterval: 0.4
+  footstepsInterval: 0.19
   minPitch: 0.9
   maxPitch: 1.1
   footstepsAudioSourcePrefab: {fileID: 5419271132994270505, guid: 87811018d4ee3ba459b7aa063ff00068, type: 3}
@@ -2408,6 +2348,7 @@ GameObject:
   - component: {fileID: 7064269969742755504}
   - component: {fileID: 9015075100487749645}
   - component: {fileID: 1341776066}
+  - component: {fileID: 1341776068}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -2684,6 +2625,30 @@ MonoBehaviour:
   _canHover: 0
   _canHoverJump: 0
   _canAttack: 0
+--- !u!114 &1341776068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503279998574797064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6392e4273c118f047a28be6d7ab5908a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  flashColor: 1
+  flashFrequency: 0.1
+  flashDuration: 0.4
 --- !u!61 &8925308846595482651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2926,13 +2891,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45eb415d6052d3e49a86a9f3f50265fa, type: 3}
---- !u!1 &5989402727840158776 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7430364202242143785, guid: 45eb415d6052d3e49a86a9f3f50265fa, type: 3}
-  m_PrefabInstance: {fileID: 3747934783229977105}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2904952631229496018 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2041012255277308099, guid: 45eb415d6052d3e49a86a9f3f50265fa, type: 3}
+  m_PrefabInstance: {fileID: 3747934783229977105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5989402727840158776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7430364202242143785, guid: 45eb415d6052d3e49a86a9f3f50265fa, type: 3}
   m_PrefabInstance: {fileID: 3747934783229977105}
   m_PrefabAsset: {fileID: 0}

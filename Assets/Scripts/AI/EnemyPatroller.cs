@@ -24,7 +24,10 @@ namespace Adhaesii.WazoooDOTexe
         private HealthController HealthController { get; set; }
         private HealthAudio HealthAudio { get; set; }
 
+        private HitSpriteFX HitFX { get; set; } 
+            
         private SpriteRenderer SpriteRenderer { get; set; }
+        
 
         private Transform Transform { get; set; }
         
@@ -34,6 +37,7 @@ namespace Adhaesii.WazoooDOTexe
         {
             HealthController = GetComponent<HealthController>();
             HealthAudio = GetComponentInChildren<HealthAudio>();
+            HitFX = GetComponent<HitSpriteFX>();
             SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
             Transform = transform;
         }
@@ -43,13 +47,17 @@ namespace Adhaesii.WazoooDOTexe
             HealthController.OnDamage += HealthAudio.PlayHit; 
             HealthController.OnDie += HealthAudio.PlayDie;
             HealthController.OnDie += () => gameObject.SetActive(false);
+            HealthController.OnDamage += ShowFX;
         }
 
         private void OnDisable()
         {
             HealthController.OnDamage -= HealthAudio.PlayHit; 
             HealthController.OnDie -= HealthAudio.PlayDie;
+            HealthController.OnDamage -= ShowFX;
         }
+
+        private void ShowFX() => HitFX.ShowFX();
 
         private void Update()
         {

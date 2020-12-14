@@ -2,6 +2,7 @@ using System;
 using Adhaesii.WazoooDOTexe.Old;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Adhaesii.WazoooDOTexe
 {
@@ -21,6 +22,8 @@ namespace Adhaesii.WazoooDOTexe
 
         [SerializeField]
         private bool useHealth;
+
+        private bool subscribed;
         public void Damage(GameObject source)
         {
             if (!useHealth)
@@ -29,15 +32,24 @@ namespace Adhaesii.WazoooDOTexe
                 return;
             }
             
-            if(TryGetComponent(out HealthController healthController) && healthController.Health == 0)
-                doBreak_();
+            if(TryGetComponent(out HealthController healthController))
+            {
+                if (!subscribed)
+                {
+                    healthController.OnDie += doBreak_;
+                    subscribed = true;
+                }
+                healthController.Health--;
+            }
 
             void doBreak_()
             {
+                print("BREAK");
                 if (breakFX)
                 {
                     GameObject breakInstance = Instantiate(breakFX);
                     breakInstance.transform.position = transform.position;
+                    Destroy(breakInstance, 2f);
                 }
 
                 switch (breakAction)

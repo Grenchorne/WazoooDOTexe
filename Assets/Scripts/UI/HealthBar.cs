@@ -17,18 +17,17 @@ namespace Adhaesii.WazoooDOTexe.UI
         private void OnEnable()
         {
             playerHealth.OnDamage += UpdateHealth;
-            playerHealth.OnDie += UpdateHealth;
+            playerHealth.OnDie += ResetHealth;
         }
 
         private void OnDisable()
         {
             playerHealth.OnDamage -= UpdateHealth;
-            playerHealth.OnDie -= UpdateHealth;
+            playerHealth.OnDie -= ResetHealth;
         }
 
-        private void UpdateHealth()
-        {
-            maskSlider.Value = (float) playerHealth.Health / (float) playerHealth.MaxHealth;
-        }
+        private void UpdateHealth() => maskSlider.Value = (float) playerHealth.Health / (float) playerHealth.MaxHealth;
+
+        private void ResetHealth() => maskSlider.Value = 1;
     }
 }

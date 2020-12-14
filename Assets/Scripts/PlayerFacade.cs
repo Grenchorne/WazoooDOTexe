@@ -18,6 +18,8 @@ namespace Adhaesii.WazoooDOTexe
         private HealthController HealthController { get; set; }
         
         private PlayerAbilityUnlockHandler Abilities { get; set; }
+        
+        private HitSpriteFX HitFX { get; set; }
 
         private bool jumpCancelled;
 
@@ -47,6 +49,7 @@ namespace Adhaesii.WazoooDOTexe
             FuelHandler = GetComponent<FuelHandler>();
             HealthController = GetComponent<HealthController>();
             Abilities = GetComponent<PlayerAbilityUnlockHandler>();
+            HitFX = GetComponent<HitSpriteFX>();
             
             peek = new PlayerVerticalPeek(peekSettings);
             peekTransform.SetParent(transform);
@@ -54,21 +57,24 @@ namespace Adhaesii.WazoooDOTexe
 
         private void OnEnable()
         {
-            //Mover.OnWalk += audioController.ProcessFootsteps;
+            Mover.OnWalk += audioController.ProcessFootsteps;
             
             Mover.OnHover += audioController.ProcessHover;
             Mover.OnHover += SetHoverFX;
             
             swordController.OnSwing += audioController.PlayAttack;
 
-
             HealthController.OnDamage += audioController.PlayHit;
             HealthController.OnDie += audioController.PlayDie;
+
+            HealthController.OnDamage += showHitFX;
+
+
         }
 
         private void OnDisable()
         {
-            //Mover.OnWalk -= audioController.ProcessFootsteps;
+            Mover.OnWalk -= audioController.ProcessFootsteps;
             Mover.OnHover -= audioController.ProcessHover;
             Mover.OnHover -= SetHoverFX;
             
@@ -76,7 +82,11 @@ namespace Adhaesii.WazoooDOTexe
             
             HealthController.OnDamage -= audioController.PlayHit;
             HealthController.OnDie -= audioController.PlayDie;
+            
+            HealthController.OnDamage -= showHitFX;
         }
+
+        private void showHitFX() => HitFX.ShowFX();
 
         private void Update()
         {

@@ -339,6 +339,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 755089308}
     m_Modifications:
+    - target: {fileID: -1408464649110145713, guid: 8e128fe418c579a4aa13c84fdb51b487, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: -1408464649110145713, guid: 8e128fe418c579a4aa13c84fdb51b487, type: 3}
     - target: {fileID: 981262924873068245, guid: 8e128fe418c579a4aa13c84fdb51b487, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -433,6 +437,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 755089308}
     m_Modifications:
+    - target: {fileID: -1408464649110145713, guid: 8e128fe418c579a4aa13c84fdb51b487, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: -1408464649110145713, guid: 8e128fe418c579a4aa13c84fdb51b487, type: 3}
     - target: {fileID: 981262924873068245, guid: 8e128fe418c579a4aa13c84fdb51b487, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -686,7 +694,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.15
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -789,6 +797,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 755089308}
     m_Modifications:
+    - target: {fileID: -1408464649110145713, guid: 8e128fe418c579a4aa13c84fdb51b487, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: -1408464649110145713, guid: 8e128fe418c579a4aa13c84fdb51b487, type: 3}
     - target: {fileID: 981262924873068245, guid: 8e128fe418c579a4aa13c84fdb51b487, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -4685,14 +4697,14 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1341776066, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
+    - target: {fileID: 1341776068, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 1341776068, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
     - target: {fileID: 1823892157, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1823892157, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
-    - target: {fileID: 1807113836735366784, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
-      propertyPath: serializationData.Prefab
-      value: 
-      objectReference: {fileID: 1807113836735366784, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
     - target: {fileID: 2123814307324946135, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -4785,10 +4797,6 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 7064269969742755504, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
-    - target: {fileID: 7419995139905453597, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
-      propertyPath: serializationData.Prefab
-      value: 
-      objectReference: {fileID: 7419995139905453597, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
     - target: {fileID: 9015075100487749645, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -4802,6 +4810,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 755089308}
     m_Modifications:
+    - target: {fileID: -1408464649110145713, guid: 8e128fe418c579a4aa13c84fdb51b487, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: -1408464649110145713, guid: 8e128fe418c579a4aa13c84fdb51b487, type: 3}
     - target: {fileID: 981262924873068245, guid: 8e128fe418c579a4aa13c84fdb51b487, type: 3}
       propertyPath: m_Color.b
       value: 1
