@@ -48,7 +48,7 @@ namespace Adhaesii.WazoooDOTexe
 
         private void OnEnable()
         {
-            Mover.OnWalk += audioController.ProcessFootsteps;
+            //Mover.OnWalk += audioController.ProcessFootsteps;
             Mover.OnHover += audioController.ProcessHover;
             Mover.OnHover += SetHoverFX;
 
@@ -57,7 +57,7 @@ namespace Adhaesii.WazoooDOTexe
 
         private void OnDisable()
         {
-            Mover.OnWalk -= audioController.ProcessFootsteps;
+            //Mover.OnWalk -= audioController.ProcessFootsteps;
             Mover.OnHover -= audioController.ProcessHover;
             Mover.OnHover -= SetHoverFX;
             

@@ -1181,7 +1181,7 @@ GameObject:
   - component: {fileID: 1297078020}
   m_Layer: 6
   m_Name: CollisionTilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10731,6 +10731,18 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 598820874046061929, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
+    - target: {fileID: 598820875222912355, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.12941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 598820875222912355, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.3372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 598820875222912355, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 598820875597188203, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
       propertyPath: m_Name
       value: MainCanvas
@@ -10844,6 +10856,10 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1823892157, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
+    - target: {fileID: 1807113836735366784, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 1807113836735366784, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
     - target: {fileID: 2123814307324946135, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -10932,6 +10948,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6825610327444869731, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 3.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825610327444869731, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 2.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825610327444869731, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825610327444869731, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419995139905453597, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 7419995139905453597, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
 --- !u!1001 &6299624046615275401
