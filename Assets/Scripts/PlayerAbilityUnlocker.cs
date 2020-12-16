@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 
 namespace Adhaesii.WazoooDOTexe
@@ -18,6 +19,31 @@ namespace Adhaesii.WazoooDOTexe
 
         [SerializeField]
         private Ability ability;
+
+        [SerializeField]
+        private string playerTag = "Player";
+        
+
+        [SerializeField, HideInInspector]
+        private bool _useTrigger;
+
+        [ShowInInspector]
+        private bool UseTrigger
+        {
+            get => _useTrigger;
+            set
+            {
+                if (value)
+                {
+                    if (GetComponent<Collider2D>() == null)
+                    {
+                        BoxCollider2D c = gameObject.AddComponent<BoxCollider2D>();
+                        c.isTrigger = true;
+                    }
+                }
+                _useTrigger = value;
+            }
+        }
 
         public event Action OnUnlock;
 
@@ -62,6 +88,16 @@ namespace Adhaesii.WazoooDOTexe
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if(!other.CompareTag(playerTag))
+                return;
+            
+            UnlockAbility();
+            
+            gameObject.SetActive(false);
         }
     }
 }
