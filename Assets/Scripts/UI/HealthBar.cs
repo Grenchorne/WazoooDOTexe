@@ -14,20 +14,10 @@ namespace Adhaesii.WazoooDOTexe.UI
 
         private void Awake() => maskSlider = GetComponent<MaskSlider>();
 
-        private void OnEnable()
-        {
-            playerHealth.OnDamage += UpdateHealth;
-            playerHealth.OnDie += ResetHealth;
-        }
+        private void OnEnable() => playerHealth.OnUpdateHealth += UpdateHealth;
 
-        private void OnDisable()
-        {
-            playerHealth.OnDamage -= UpdateHealth;
-            playerHealth.OnDie -= ResetHealth;
-        }
+        private void OnDisable() => playerHealth.OnUpdateHealth -= UpdateHealth;
 
         private void UpdateHealth() => maskSlider.Value = (float) playerHealth.Health / (float) playerHealth.MaxHealth;
-
-        private void ResetHealth() => maskSlider.Value = 1;
     }
 }

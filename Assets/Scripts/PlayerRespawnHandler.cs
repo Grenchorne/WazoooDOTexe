@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Adhaesii.WazoooDOTexe
 {
@@ -17,7 +18,16 @@ namespace Adhaesii.WazoooDOTexe
         [ShowInInspector, ReadOnly]
         public Transform SpawnPoint { get; set; }
 
-        public event Action<Transform> OnRespawn; 
+        [SerializeField]
+        private float respawnTime = 2f;
+
+        public event Action<Transform> OnRespawn;
+
+        [SerializeField]
+        private UnityEvent DespawnEvents;
+        
+        [SerializeField]
+        private UnityEvent RespawnEvents;
 
         public void Respawn()
         {
@@ -28,11 +38,24 @@ namespace Adhaesii.WazoooDOTexe
             }
 
             if (useSelf)
-                transform.position = SpawnPoint.position;
+                StartCoroutine(processRespawn_(transform));
             else if (player)
-                player.transform.position = SpawnPoint.position;
-            
-            OnRespawn?.Invoke(SpawnPoint);
+                StartCoroutine(processRespawn_(player.transform));
+
+            IEnumerator processRespawn_(Transform tx)
+            {
+                DespawnEvents?.Invoke();
+                
+                yield return new WaitForSeconds(respawnTime);
+                
+                RespawnEvents?.Invoke();
+
+                tx.position = SpawnPoint.position;
+                
+                OnRespawn?.Invoke(SpawnPoint);
+                
+                GameEvents.Instance.PlayerRespawn();
+            }
         }
     }
 }

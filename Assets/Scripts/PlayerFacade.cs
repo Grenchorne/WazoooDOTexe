@@ -16,6 +16,7 @@ namespace Adhaesii.WazoooDOTexe
         private FuelHandler FuelHandler { get; set; }
         
         private HealthController HealthController { get; set; }
+        private PlayerRespawnHandler RespawnHandler { get; set; }
         
         private PlayerAbilityUnlockHandler Abilities { get; set; }
         
@@ -48,6 +49,7 @@ namespace Adhaesii.WazoooDOTexe
             GroundCheck = GetComponentInChildren<GroundCheck>();
             FuelHandler = GetComponent<FuelHandler>();
             HealthController = GetComponent<HealthController>();
+            RespawnHandler = GetComponent<PlayerRespawnHandler>();
             Abilities = GetComponent<PlayerAbilityUnlockHandler>();
             HitFX = GetComponent<HitSpriteFX>();
             
@@ -69,6 +71,8 @@ namespace Adhaesii.WazoooDOTexe
 
             HealthController.OnDamage += showHitFX;
 
+            // Game Events
+            HealthController.OnDie += () => GameEvents.Instance.PlayerDeath();
 
         }
 
@@ -84,6 +88,9 @@ namespace Adhaesii.WazoooDOTexe
             HealthController.OnDie -= audioController.PlayDie;
             
             HealthController.OnDamage -= showHitFX;
+            
+            // Game Events
+            HealthController.OnDie -= () => GameEvents.Instance.PlayerDeath();
         }
 
         private void showHitFX() => HitFX.ShowFX();

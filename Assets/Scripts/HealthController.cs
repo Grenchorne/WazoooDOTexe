@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Adhaesii.WazoooDOTexe.Audio;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Adhaesii.WazoooDOTexe
 {
@@ -32,32 +33,11 @@ namespace Adhaesii.WazoooDOTexe
         private float damageBounceMovementDisableCooldown = 0.075f;
 
         public event Action OnDamage;
-        //public event Action On
-        public event Action OnDie; 
+        public event Action OnDie;
+        public event Action OnUpdateHealth; 
         
         private int _health;
-
-        [ShowInInspector]
-        public int Health
-        {
-            get => _health;
-            set
-            {   
-                if (_health - 1 <= 0)
-                {
-                    _health = 0;
-                    OnDie?.Invoke();
-                }
-                
-                else
-                {
-                    _health--;
-                    OnDamage?.Invoke();
-                }
-                
-                t_cooldown = cooldownBetweenHits;
-            }
-        }
+        public int Health => _health;
 
         private PlayerMover playerMover;
         private Rigidbody2D rigidBody2D;
@@ -79,10 +59,20 @@ namespace Adhaesii.WazoooDOTexe
             if(t_cooldown > 0)
                 return;
 
-            Health--;
+            _health--;
+            
+            OnUpdateHealth?.Invoke();
+            
+            t_cooldown = cooldownBetweenHits;
 
-            if(_health == 0)
+            if (_health <= 0)
+            {
+                _health = 0;
+                OnDie?.Invoke();
                 return;
+            }
+            
+            OnDamage?.Invoke();
             
             // temporarily lock out of movement
             StartCoroutine(_());
@@ -107,8 +97,7 @@ namespace Adhaesii.WazoooDOTexe
         public void FullHeal()
         {
             _health = _maxHealth;
+            OnUpdateHealth?.Invoke();
         }
-        
-        
     }
 }

@@ -21,6 +21,15 @@ namespace Adhaesii.WazoooDOTexe.UI
         [SerializeField, Required]
         private CanvasGroup gameplayMenu;
 
+        [SerializeField]
+        private MessageNotification hoverUnlockMessage;
+
+        [SerializeField]
+        private MessageNotification attackUnlockMessage;
+
+        [SerializeField]
+        private CanvasGroup backgroundCanvas;
+
         enum Mode
         {
             Title,
@@ -29,12 +38,26 @@ namespace Adhaesii.WazoooDOTexe.UI
 
         private Mode mode = Mode.Title;
 
-        private void Start() => ChangeMode(mode = _startingMode);
+        private void Start()
+        {
+            ChangeMode(mode = _startingMode);
+
+            PlayerAbilityUnlockHandler p = FindObjectOfType<PlayerAbilityUnlockHandler>();
+            p.OnUnlockHover += () => hoverUnlockMessage.Show();
+            p.OnUnlockAttack += () => attackUnlockMessage.Show();
+        }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
                 ChangeMode(mode == Mode.Title ? Mode.Gameplay : Mode.Title);
+
+            // not super efficient but simple enough for this prototype
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                attackUnlockMessage.Hide();
+                hoverUnlockMessage.Hide();
+            }
             return;
             switch (mode)
             {
@@ -65,6 +88,9 @@ namespace Adhaesii.WazoooDOTexe.UI
                     throw new ArgumentOutOfRangeException(nameof(mode), mode, null);
             }
         }
-        
+
+        public void ShowBackground() => LeanTween.alphaCanvas(backgroundCanvas, 1, 0.75f);
+
+        public void HideBackground() => LeanTween.alphaCanvas(backgroundCanvas, 0, 0.75f);
     }
 }

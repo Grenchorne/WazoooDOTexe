@@ -39,7 +39,7 @@ namespace Adhaesii.WazoooDOTexe
                     healthController.OnDie += doBreak_;
                     subscribed = true;
                 }
-                healthController.Health--;
+                healthController.Damage(gameObject);
             }
 
             void doBreak_()
