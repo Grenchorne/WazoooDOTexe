@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Adhaesii.WazoooDOTexe.Old
+namespace Adhaesii.WazoooDOTexe
 {
     [RequireComponent(typeof(Collider2D))]
     public class KillTrigger : SerializedMonoBehaviour
@@ -16,9 +16,15 @@ namespace Adhaesii.WazoooDOTexe.Old
             
             if (other.CompareTag(playerTag))
             {
-                other.transform.position = Vector3.zero;        
-                if(other.TryGetComponent(out Rigidbody2D rb))
-                    rb.velocity = Vector2.zero;
+                if (other.TryGetComponent(out PlayerRespawnHandler respawnHandler))
+                    respawnHandler.Respawn();
+                
+                else
+                {
+                    other.transform.position = Vector3.zero;        
+                    if(other.TryGetComponent(out Rigidbody2D rb))
+                        rb.velocity = Vector2.zero;
+                }
             }
 
             else
