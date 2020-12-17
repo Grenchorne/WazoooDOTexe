@@ -1342,8 +1342,8 @@ MonoBehaviour:
   k_toggleUnlock_Attack: 49
   k_toggleUnlock_Hover: 50
   k_toggleUnlock_HoverJump: 51
-  k_fullHeal: 256
-  k_damage: 257
+  k_fullHeal: 270
+  k_damage: 269
 --- !u!4 &134741704
 Transform:
   m_ObjectHideFlags: 0
