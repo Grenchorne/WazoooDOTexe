@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Adhaesii.WazoooDOTexe
 {
@@ -22,7 +23,6 @@ namespace Adhaesii.WazoooDOTexe
 
         [SerializeField]
         private string playerTag = "Player";
-        
 
         [SerializeField, HideInInspector]
         private bool _useTrigger;
@@ -45,7 +45,7 @@ namespace Adhaesii.WazoooDOTexe
             }
         }
 
-        public event Action OnUnlock;
+        public UnityEvent OnUnlock; 
 
         public void UnlockAbility()
         {
