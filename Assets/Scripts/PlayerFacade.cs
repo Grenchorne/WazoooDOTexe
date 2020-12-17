@@ -146,7 +146,8 @@ namespace Adhaesii.WazoooDOTexe
         private void SetHoverFX(bool isHovering)
         {
             foreach (var go in hoverGameObjects)
-                go.SetActive(isHovering);
+                if (go)
+                    go.SetActive(isHovering);
         }
     }
 }
