@@ -1356,7 +1356,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &153242895
 PrefabInstance:
@@ -2729,7 +2729,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2039
+    m_Bits: 6135
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3743,7 +3743,7 @@ Transform:
   - {fileID: 1322184161}
   - {fileID: 1017945358}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &380247891
 PrefabInstance:
@@ -14153,7 +14153,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &523457849
 PrefabInstance:
@@ -15241,7 +15241,7 @@ Transform:
   - {fileID: 1209269866}
   - {fileID: 1001301680}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &617212399
 GameObject:
@@ -17176,7 +17176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 801482724}
   - component: {fileID: 801482725}
-  m_Layer: 15
+  m_Layer: 12
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21875,7 +21875,7 @@ Transform:
   - {fileID: 545832040}
   - {fileID: 587473404}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1149774775
 GameObject:
@@ -66249,88 +66249,6 @@ Transform:
   m_Father: {fileID: 1686532827}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1464591372
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1464591374}
-  - component: {fileID: 1464591373}
-  m_Layer: 0
-  m_Name: World
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1464591373
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1464591372}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 8177263847542002924, guid: 4bfc3ff3ce38bbd4b805cd4451dfaa19, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 176, y: 92}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1464591374
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1464591372}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 84, y: -32, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1474219298
 GameObject:
   m_ObjectHideFlags: 0
@@ -67715,7 +67633,7 @@ Transform:
   - {fileID: 1117584258}
   - {fileID: 1091467503}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1607829790
 PrefabInstance:
@@ -69582,7 +69500,7 @@ Transform:
   - {fileID: 1290572194}
   - {fileID: 274480703}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1793964299
 PrefabInstance:
@@ -73490,7 +73408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4168488763397478}
   - component: {fileID: 212433281213632022}
-  m_Layer: 15
+  m_Layer: 12
   m_Name: HealthPickup (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73508,7 +73426,7 @@ GameObject:
   - component: {fileID: 4227088414657816}
   - component: {fileID: 198973867397041936}
   - component: {fileID: 199673701085906060}
-  m_Layer: 15
+  m_Layer: 12
   m_Name: HealthParticles (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73526,7 +73444,7 @@ GameObject:
   - component: {fileID: 4116145369888356}
   - component: {fileID: 198768925954905494}
   - component: {fileID: 199498737666497520}
-  m_Layer: 15
+  m_Layer: 12
   m_Name: RockChunks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73544,7 +73462,7 @@ GameObject:
   - component: {fileID: 4795292833981068}
   - component: {fileID: 198250096502680376}
   - component: {fileID: 199919905308008760}
-  m_Layer: 15
+  m_Layer: 12
   m_Name: RubbleDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73562,7 +73480,7 @@ GameObject:
   - component: {fileID: 4312012898740738}
   - component: {fileID: 198460282761565432}
   - component: {fileID: 199854520222516138}
-  m_Layer: 15
+  m_Layer: 12
   m_Name: Glow (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73580,7 +73498,7 @@ GameObject:
   - component: {fileID: 4617124436227036}
   - component: {fileID: 198132998666056496}
   - component: {fileID: 199565713099938102}
-  m_Layer: 15
+  m_Layer: 12
   m_Name: GlowSteaks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73598,7 +73516,7 @@ GameObject:
   - component: {fileID: 4690095557200082}
   - component: {fileID: 198537708568057776}
   - component: {fileID: 199890679448590360}
-  m_Layer: 15
+  m_Layer: 12
   m_Name: HealthParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73616,7 +73534,7 @@ GameObject:
   - component: {fileID: 4406995980933032}
   - component: {fileID: 198143586185436272}
   - component: {fileID: 199441158442950122}
-  m_Layer: 15
+  m_Layer: 12
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73635,7 +73553,7 @@ GameObject:
   - component: {fileID: 58266199285380824}
   - component: {fileID: 1954612449157621}
   - component: {fileID: 82647149789150532}
-  m_Layer: 15
+  m_Layer: 12
   m_Name: HealthPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73730,7 +73648,7 @@ Transform:
   - {fileID: 4168488763397478}
   - {fileID: 801482724}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4116145369888356
 Transform:
