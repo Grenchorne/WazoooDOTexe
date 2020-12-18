@@ -29,6 +29,9 @@ namespace Adhaesii.WazoooDOTexe.WazoooDebug
         private KeyCode k_damage = KeyCode.Keypad1;
 
         [SerializeField]
+        private KeyCode k_teleport = KeyCode.Z;
+
+        [SerializeField]
         private bool spawnCoinOnRightClick = true;
 
         private PlayerFacade player;
@@ -51,6 +54,8 @@ namespace Adhaesii.WazoooDOTexe.WazoooDebug
 
         private void Update()
         {
+            Vector2? mousePos = null;
+            
             if (GetKeyDown(k_respawn)) respawnHandler.Respawn();
             if (GetKeyDown(k_toggleUnlock_Jump)) unlockHandler.CanJump = !unlockHandler.CanJump;
             if (GetKeyDown(k_toggleUnlock_Attack)) unlockHandler.CanAttack = !unlockHandler.CanAttack;
@@ -59,12 +64,32 @@ namespace Adhaesii.WazoooDOTexe.WazoooDebug
             if (GetKeyDown(k_fullHeal)) playerHealth.FullHeal();
             if (GetKeyDown(k_damage)) playerHealth.Damage(gameObject);
 
+            if (GetKeyDown(k_teleport))
+            {
+                setScreenToWorldPoint_();
+                player.transform.position = (Vector2)mousePos;
+                
+                if(player.TryGetComponent(out Rigidbody2D  rigidbody2D))
+                    rigidbody2D.velocity = Vector2.zero;
+                
+                else if (player.TryGetComponent(out Rigidbody rigidbody))
+                    rigidbody.velocity = Vector3.zero;
+            }
+            
+            // mouse-dependant tasks
             if (spawnCoinOnRightClick && GetMouseButtonDown(1))
             {
-                Vector2 pos = mainCam.ScreenToWorldPoint(mousePosition);
+                setScreenToWorldPoint_();   
                 CoinPoolable coin = coinPool.GetCoin();
-                coin.Transform.position = pos;
+                coin.Transform.position = (Vector2)mousePos;
                 coin.gameObject.SetActive(true);
+            }
+     
+
+            void setScreenToWorldPoint_()
+            {
+                if(mousePos == null)
+                    mousePos =  mainCam.ScreenToWorldPoint(mousePosition);
             }
         }
     }
