@@ -30,6 +30,8 @@ namespace Adhaesii.WazoooDOTexe.UI
         [SerializeField]
         private CanvasGroup backgroundCanvas;
 
+        private CurrencyDisplay currencyDisplay;
+
         enum Mode
         {
             Title,
@@ -38,6 +40,11 @@ namespace Adhaesii.WazoooDOTexe.UI
 
         private Mode mode = Mode.Title;
 
+        private void Awake()
+        {
+            currencyDisplay = GetComponentInChildren<CurrencyDisplay>();
+        }
+
         private void Start()
         {
             ChangeMode(mode = _startingMode);
@@ -45,6 +52,8 @@ namespace Adhaesii.WazoooDOTexe.UI
             PlayerAbilityUnlockHandler p = FindObjectOfType<PlayerAbilityUnlockHandler>();
             p.OnUnlockHover += () => hoverUnlockMessage.Show();
             p.OnUnlockAttack += () => attackUnlockMessage.Show();
+            
+            p.GetComponent<PlayerCurrency>().OnUpdate += currencyDisplay.UpdateText;
         }
 
         private void Update()

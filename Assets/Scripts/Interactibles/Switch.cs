@@ -16,6 +16,6 @@ namespace Adhaesii.WazoooDOTexe.Interactibles
         {
             if (other.CompareTag(activationTag))
                 activationEvents?.Invoke();
-        }
+        }  
     }
 }
