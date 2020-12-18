@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Adhaesii.WazoooDOTexe
 {
-    public class SwordController : SerializedMonoBehaviour
+    public class PlayerMeleeController : SerializedMonoBehaviour
     {
         [SerializeField] private string attackTrigger = "Swing";
         [SerializeField] private float cooldown = 0.27f;

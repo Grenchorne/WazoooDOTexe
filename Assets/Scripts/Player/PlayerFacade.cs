@@ -1,6 +1,7 @@
 using Adhaesii.WazoooDOTexe.Audio;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Adhaesii.WazoooDOTexe.Player
 {
@@ -25,7 +26,7 @@ namespace Adhaesii.WazoooDOTexe.Player
         private bool jumpCancelled;
 
         [SerializeField, Required]
-        private SwordController swordController;
+        private PlayerMeleeController playerMeleeController;
 
         [SerializeField, Required]
         private PlayerAudioController audioController;
@@ -64,7 +65,7 @@ namespace Adhaesii.WazoooDOTexe.Player
             Mover.OnHover += audioController.ProcessHover;
             Mover.OnHover += SetHoverFX;
             
-            swordController.OnSwing += audioController.PlayAttack;
+            playerMeleeController.OnSwing += audioController.PlayAttack;
 
             HealthController.OnDamage += audioController.PlayHit;
             HealthController.OnDie += audioController.PlayDie;
@@ -82,7 +83,7 @@ namespace Adhaesii.WazoooDOTexe.Player
             Mover.OnHover -= audioController.ProcessHover;
             Mover.OnHover -= SetHoverFX;
             
-            swordController.OnSwing -= audioController.PlayAttack;
+            playerMeleeController.OnSwing -= audioController.PlayAttack;
             
             HealthController.OnDamage -= audioController.PlayHit;
             HealthController.OnDie -= audioController.PlayDie;
@@ -140,7 +141,7 @@ namespace Adhaesii.WazoooDOTexe.Player
 
             // Check if can attack
             if(Input.Attack && Abilities.CanAttack)
-                swordController.Attack();
+                playerMeleeController.Attack();
         }
 
         private void SetHoverFX(bool isHovering)

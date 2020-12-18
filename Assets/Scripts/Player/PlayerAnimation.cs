@@ -13,18 +13,18 @@ namespace Adhaesii.WazoooDOTexe.Player
         private HashSet hashSet;
 
         private PlayerMover playerMover;
-        private SwordController swordController;
+        private PlayerMeleeController playerMeleeController;
         
         private void Awake()
         {
             hashSet.Initialize();
             playerMover = GetComponent<PlayerMover>();
-            swordController = GetComponentInChildren<SwordController>();
+            playerMeleeController = GetComponentInChildren<PlayerMeleeController>();
         }
 
         private void Start()
         {
-            swordController.OnSwing += () => animator.SetTrigger(hashSet.Melee);
+            playerMeleeController.OnSwing += () => animator.SetTrigger(hashSet.Melee);
             //playerMover.JumpProcessor.OnJump += SetJump;
         }
 

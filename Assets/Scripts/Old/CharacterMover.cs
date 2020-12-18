@@ -16,7 +16,7 @@ namespace Adhaesii.WazoooDOTexe.Old
         private GroundCheck _groundCheck;
         private Rigidbody2D _rigidbody2D;
 
-        private SwordController sword;
+        private PlayerMeleeController playerMelee;
         private Transform _transform;
 
         private FuelHandler _fuelHandler;
@@ -48,7 +48,7 @@ namespace Adhaesii.WazoooDOTexe.Old
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _transform = transform;
 
-            sword = GetComponentInChildren<SwordController>();
+            playerMelee = GetComponentInChildren<PlayerMeleeController>();
 
             _fuelHandler = GetComponent<FuelHandler>();
         }
@@ -73,7 +73,7 @@ namespace Adhaesii.WazoooDOTexe.Old
             //jumpState = JumpState.Pressed;
         }
 
-        public void Melee() => sword.Attack();
+        public void Melee() => playerMelee.Attack();
 
         public void Hover()
         {
