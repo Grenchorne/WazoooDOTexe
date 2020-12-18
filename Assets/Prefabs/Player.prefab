@@ -2352,6 +2352,7 @@ GameObject:
   - component: {fileID: 1341776066}
   - component: {fileID: 1341776068}
   - component: {fileID: 1034184077250080300}
+  - component: {fileID: 1889782745660474509}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -2463,7 +2464,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  swordController: {fileID: 3503279997536129424}
+  playerMeleeController: {fileID: 3503279997536129424}
   audioController: {fileID: 3503279997459241171}
   hoverGameObjects:
   - {fileID: 6306115106739304207}
@@ -2850,6 +2851,58 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+--- !u!114 &1889782745660474509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503279998574797064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e06a2e9fb6dc7439f162bc2076489f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  inputType: 0
+  Pause:
+    key: 27
+    controllerButton: 8
+    _enabled: 1
+  Jump:
+    key: 32
+    controllerButton: 1
+    _enabled: 1
+  Hover:
+    key: 304
+    controllerButton: 9
+    _enabled: 1
+  MeleeAttack:
+    key: 106
+    controllerButton: 3
+    _enabled: 1
+  RangedAttack:
+    key: 107
+    controllerButton: 2
+    _enabled: 1
+  Horizontal:
+    positive: 97
+    negative: 100
+    controllerAxis: 1
+    _enabled: 1
+  Vertical:
+    positive: 119
+    negative: 115
+    controllerAxis: 2
+    _enabled: 1
 --- !u!1 &4802493821601853611
 GameObject:
   m_ObjectHideFlags: 0
@@ -3095,14 +3148,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45eb415d6052d3e49a86a9f3f50265fa, type: 3}
---- !u!4 &3228244537629841893 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2041012255277308099, guid: 45eb415d6052d3e49a86a9f3f50265fa, type: 3}
-  m_PrefabInstance: {fileID: 3503279996758147366}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6306115106739304207 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7430364202242143785, guid: 45eb415d6052d3e49a86a9f3f50265fa, type: 3}
+  m_PrefabInstance: {fileID: 3503279996758147366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3228244537629841893 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2041012255277308099, guid: 45eb415d6052d3e49a86a9f3f50265fa, type: 3}
   m_PrefabInstance: {fileID: 3503279996758147366}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3747934783229977105
