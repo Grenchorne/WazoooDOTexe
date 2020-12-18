@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using Adhaesii.WazoooDOTexe.Audio;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Adhaesii.WazoooDOTexe
+namespace Adhaesii.WazoooDOTexe.Player
 {
     public class PlayerSpawnHandler : SerializedMonoBehaviour
     {

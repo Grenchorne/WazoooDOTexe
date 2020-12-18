@@ -1,4 +1,5 @@
 using System;
+using Adhaesii.WazoooDOTexe.Player;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

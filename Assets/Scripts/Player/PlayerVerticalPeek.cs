@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Adhaesii.WazoooDOTexe
+namespace Adhaesii.WazoooDOTexe.Player
 {
     public class PlayerVerticalPeek
     {

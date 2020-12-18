@@ -1,3 +1,4 @@
+using Adhaesii.WazoooDOTexe.Player;
 using Adhaesii.WazoooDOTexe.Pooling;
 using Sirenix.OdinInspector;
 using static UnityEngine.Input;

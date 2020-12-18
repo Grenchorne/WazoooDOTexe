@@ -2,7 +2,7 @@ using Adhaesii.WazoooDOTexe.Audio;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Adhaesii.WazoooDOTexe
+namespace Adhaesii.WazoooDOTexe.Player
 {
     [RequireComponent(typeof(PlayerInput), typeof(PlayerMover), typeof(Rigidbody2D))]
     [RequireComponent(typeof(FuelHandler))]

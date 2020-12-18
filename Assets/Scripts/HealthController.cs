@@ -1,10 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Adhaesii.WazoooDOTexe.Audio;
+using Adhaesii.WazoooDOTexe.Player;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Adhaesii.WazoooDOTexe
 {

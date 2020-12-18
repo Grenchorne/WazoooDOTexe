@@ -1,4 +1,5 @@
 using Adhaesii.WazoooDOTexe.Audio;
+using Adhaesii.WazoooDOTexe.Player;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
