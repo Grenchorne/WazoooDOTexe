@@ -7,7 +7,6 @@ namespace Adhaesii.WazoooDOTexe
     {
         public void Quit()
         {
-            print("quit");
             #if UNITY_EDITOR
             if (UnityEditor.EditorApplication.isPlaying) UnityEditor.EditorApplication.isPlaying = false;
             #else
@@ -17,7 +16,6 @@ namespace Adhaesii.WazoooDOTexe
 
         public void Restart()
         {
-            print("restart");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

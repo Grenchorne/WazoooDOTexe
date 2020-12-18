@@ -21,6 +21,8 @@ namespace Adhaesii.WazoooDOTexe.Player
         
         private PlayerAbilityUnlockHandler Abilities { get; set; }
         
+        private PlayerRangedController RangedController { get; set; }
+        
         private HitSpriteFX HitFX { get; set; }
 
         private bool jumpCancelled;
@@ -53,6 +55,7 @@ namespace Adhaesii.WazoooDOTexe.Player
             RespawnHandler = GetComponent<PlayerRespawnHandler>();
             Abilities = GetComponent<PlayerAbilityUnlockHandler>();
             HitFX = GetComponent<HitSpriteFX>();
+            RangedController = GetComponent<PlayerRangedController>();
             
             peek = new PlayerVerticalPeek(peekSettings);
             peekTransform.SetParent(transform);
@@ -99,6 +102,13 @@ namespace Adhaesii.WazoooDOTexe.Player
         private void Update()
         {
             peekTransform.localPosition = new Vector3(0, peek.ProcessPeek(Input.Vertical.Value, Mover.IsMoving, Time.deltaTime));
+            
+            // Check if can attack
+            if(Input.MeleeAttack.Down && Abilities.CanAttack)
+                playerMeleeController.Attack();
+
+            if (Input.RangedAttack.Down && Abilities.CanShoot)
+                RangedController.Shoot(transform.localScale.x > 0); 
         }
 
         private void FixedUpdate()
@@ -138,10 +148,6 @@ namespace Adhaesii.WazoooDOTexe.Player
                     jumpCancelled = true;
                 }
             }
-
-            // Check if can attack
-            if(Input.MeleeAttack.Held && Abilities.CanAttack)
-                playerMeleeController.Attack();
         }
 
         private void SetHoverFX(bool isHovering)

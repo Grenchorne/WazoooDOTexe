@@ -8,13 +8,13 @@ namespace Adhaesii.WazoooDOTexe.Player
     {
         [SerializeField]
         private Animator animator;
-        
+
         [SerializeField]
         private HashSet hashSet;
 
         private PlayerMover playerMover;
         private PlayerMeleeController playerMeleeController;
-        
+
         private void Awake()
         {
             hashSet.Initialize();
@@ -41,12 +41,10 @@ namespace Adhaesii.WazoooDOTexe.Player
             //animator.SetBool(hashSet.Idle, playerMover.IsIdling);
         }
 
-
         private void SetWalk(bool isWalking)
         {
-            if(!isWalking)
-                return;
-            
+            if (!isWalking) return;
+
             animator.SetBool(hashSet.Move, true);
         }
 
@@ -65,20 +63,28 @@ namespace Adhaesii.WazoooDOTexe.Player
         {
             [SerializeField]
             private string h_move = "IsMoving";
-            public int Move { get; private set;}
+
+            public int Move { get; private set; }
 
             [SerializeField]
             private string h_jump = "Jump";
+
             public int Jump { get; private set; }
 
             [SerializeField]
             private string h_idle = "IsIdling";
-            public int Idle { get; private set;}
-            
-            
+
+            public int Idle { get; private set; }
+
             [SerializeField]
             private string h_melee = "Melee";
-            public int Melee { get; private set;}
+
+            public int Melee { get; private set; }
+
+            [SerializeField]
+            private string h_ranged = "Ranged";
+
+            public int Ranged { get; private set; }
 
             public void Initialize()
             {
@@ -86,6 +92,7 @@ namespace Adhaesii.WazoooDOTexe.Player
                 Jump = Animator.StringToHash(h_jump);
                 Idle = Animator.StringToHash(h_idle);
                 Melee = Animator.StringToHash(h_melee);
+                Ranged = Animator.StringToHash(h_ranged);
             }
         }
     }

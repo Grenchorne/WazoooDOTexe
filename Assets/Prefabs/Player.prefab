@@ -2347,6 +2347,7 @@ GameObject:
   - component: {fileID: 3503279998574797056}
   - component: {fileID: 1823892157}
   - component: {fileID: 7064269969742755504}
+  - component: {fileID: 649071231364617182}
   - component: {fileID: 5411632323087194882}
   - component: {fileID: 9015075100487749645}
   - component: {fileID: 1341776066}
@@ -2604,6 +2605,7 @@ MonoBehaviour:
     h_jump: Jump
     h_idle: IsIdling
     h_melee: Melee
+    h_ranged: Ranged
 --- !u!114 &7064269969742755504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2632,6 +2634,32 @@ MonoBehaviour:
   damageBounceForceMode: 1
   damageLocksMovement: 1
   damageBounceMovementDisableCooldown: 0.075
+--- !u!114 &649071231364617182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503279998574797064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b47f55f4d146368cc50df3edf1e89d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  projectileSpeed: 4
+  projectileOrigin: {fileID: 2147332690}
+  cooldown: 0.7
+  projectileIsKinematic: 1
+  constantVelocity: 1
 --- !u!114 &5411632323087194882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3121,14 +3149,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45eb415d6052d3e49a86a9f3f50265fa, type: 3}
---- !u!4 &3228244537629841893 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2041012255277308099, guid: 45eb415d6052d3e49a86a9f3f50265fa, type: 3}
-  m_PrefabInstance: {fileID: 3503279996758147366}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6306115106739304207 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7430364202242143785, guid: 45eb415d6052d3e49a86a9f3f50265fa, type: 3}
+  m_PrefabInstance: {fileID: 3503279996758147366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3228244537629841893 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2041012255277308099, guid: 45eb415d6052d3e49a86a9f3f50265fa, type: 3}
   m_PrefabInstance: {fileID: 3503279996758147366}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3747934783229977105

@@ -54,9 +54,22 @@ namespace Adhaesii.WazoooDOTexe.Player
             }
         }
 
+        [SerializeField]
+        private bool _canShoot = true;
+        public bool CanShoot
+        {
+            get => _canShoot;
+            set
+            {
+                if(value && !_canShoot) OnUnlockShoot?.Invoke();
+                _canShoot = value;
+            }
+        }
+
         public event Action OnUnlockJump;
         public event Action OnUnlockHover;
         public event Action OnUnlockHoverJump;
         public event Action OnUnlockAttack;
+        public event Action OnUnlockShoot;
     }
 }
