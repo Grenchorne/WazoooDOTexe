@@ -1438,6 +1438,7 @@ MonoBehaviour:
   k_toggleUnlock_HoverJump: 51
   k_fullHeal: 270
   k_damage: 269
+  k_teleport: 122
   spawnCoinOnRightClick: 1
 --- !u!4 &134741704
 Transform:
@@ -16089,17 +16090,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3503279998574797071, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
   m_PrefabInstance: {fileID: 3503279997931838874}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &649952407 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3503279998574797069, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
-  m_PrefabInstance: {fileID: 3503279997931838874}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341776059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e9cd28bb8445fe4eb1b558e40d3fe5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &649952410 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3503279998574797056, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
@@ -75232,7 +75222,7 @@ PrefabInstance:
     - target: {fileID: 598820875597188206, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
       propertyPath: playerInput
       value: 
-      objectReference: {fileID: 649952407}
+      objectReference: {fileID: 0}
     - target: {fileID: 598820875597188206, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -75500,6 +75490,10 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1034184077250080300, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
+    - target: {fileID: 1889782745660474509, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 1889782745660474509, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
     - target: {fileID: 2123814307324946135, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -75539,6 +75533,10 @@ PrefabInstance:
     - target: {fileID: 3503279998574797064, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503279998574797064, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3503279998574797069, guid: 93eeb1931b6d62140b99487319bfff7c, type: 3}
       propertyPath: serializationData.Prefab

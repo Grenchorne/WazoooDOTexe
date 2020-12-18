@@ -1,5 +1,6 @@
 using System;
 using Adhaesii.WazoooDOTexe.Player;
+using Adhaesii.WazoooDOTexe.WazoooInput.MonoBehaviours;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -7,7 +8,6 @@ namespace Adhaesii.WazoooDOTexe.UI
 {
     public class MainUIController : SerializedMonoBehaviour
     {
-        [SerializeField, Required]
         private PlayerInput playerInput;
 
         [SerializeField]
@@ -48,6 +48,8 @@ namespace Adhaesii.WazoooDOTexe.UI
 
         private void Start()
         {
+            playerInput = PlayerInput.Instance;
+            
             ChangeMode(mode = _startingMode);
 
             PlayerAbilityUnlockHandler p = FindObjectOfType<PlayerAbilityUnlockHandler>();
@@ -62,22 +64,10 @@ namespace Adhaesii.WazoooDOTexe.UI
             if (Input.GetKeyDown(KeyCode.Escape))
                 ChangeMode(mode == Mode.Title ? Mode.Gameplay : Mode.Title);
 
-            // not super efficient but simple enough for this prototype
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                attackUnlockMessage.Hide();
-                hoverUnlockMessage.Hide();
-            }
-            return;
-            switch (mode)
-            {
-                case Mode.Title when !playerInput.NoInput:
-                    ChangeMode(Mode.Gameplay);
-                    break;
-                case Mode.Gameplay when playerInput.TimeSinceLastInput > timeout:
-                    ChangeMode(Mode.Title);
-                    break;
-            }
+
+            if (!playerInput.Jump.Down) return;
+            attackUnlockMessage.Hide();
+            hoverUnlockMessage.Hide();
         }
 
         private void ChangeMode(Mode mode)

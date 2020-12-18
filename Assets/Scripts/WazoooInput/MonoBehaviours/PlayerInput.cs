@@ -13,7 +13,7 @@ namespace Adhaesii.WazoooDOTexe.WazoooInput.MonoBehaviours
         public InputButton Hover = new InputButton(KeyCode.LeftShift, XboxControllerButtons.LeftBumper);
         public InputButton MeleeAttack = new InputButton(KeyCode.J, XboxControllerButtons.X);
         public InputButton RangedAttack = new InputButton(KeyCode.K, XboxControllerButtons.B);
-        public InputAxis Horizontal = new InputAxis(KeyCode.A, KeyCode.D, XboxControllerAxes.LeftStickHorizontal);
+        public InputAxis Horizontal = new InputAxis(KeyCode.D, KeyCode.A, XboxControllerAxes.LeftStickHorizontal);
         public InputAxis Vertical = new InputAxis(KeyCode.W, KeyCode.S, XboxControllerAxes.LeftStickVertical);
 
         private InputButton[] buttons;
@@ -44,8 +44,8 @@ namespace Adhaesii.WazoooDOTexe.WazoooInput.MonoBehaviours
         {
             if (__instance == null)
                 __instance = this;
-            else if (__instance != null)
-                throw new UnityException("Only one instance of PlayerInput allowed");
+            else if (__instance != this)
+                throw new UnityException($"Only one instance of PlayerInput allowed: {name}; {__instance.name}");
         }
 
         private void OnDisable() => __instance = null;

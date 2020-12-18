@@ -1,7 +1,7 @@
 using Adhaesii.WazoooDOTexe.Audio;
+using Adhaesii.WazoooDOTexe.WazoooInput.MonoBehaviours;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Adhaesii.WazoooDOTexe.Player
 {
@@ -98,7 +98,7 @@ namespace Adhaesii.WazoooDOTexe.Player
 
         private void Update()
         {
-            peekTransform.localPosition = new Vector3(0, peek.ProcessPeek(Input.Peek, Mover.IsMoving, Time.deltaTime));
+            peekTransform.localPosition = new Vector3(0, peek.ProcessPeek(Input.Vertical.Value, Mover.IsMoving, Time.deltaTime));
         }
 
         private void FixedUpdate()
@@ -106,23 +106,23 @@ namespace Adhaesii.WazoooDOTexe.Player
             // xxx Check if can move
             // xxx  // if (Input.Horizontal > 0 || Input.Horizontal < 0) Mover.Move(Input.Horizontal);
             // Move anyway - we check for zero inside the PlayerMover
-            Mover.Move(Input.Horizontal);
+            Mover.Move(Input.Horizontal.Value);
             
             // Replenish fuel if grounded
-            if (GroundCheck.IsGrounded || !Input.Hover)
+            if (GroundCheck.IsGrounded || !Input.Hover.Held)
             {
                 FuelHandler.DisableDepletion();
             }
 
             // Check if can hover -- ensure this is set before jump because a jump-hover depletes fuel
-            else if (Abilities.CanHover && Input.Hover && FuelHandler.Fuel > 0)
+            else if (Abilities.CanHover && Input.Hover.Held && FuelHandler.Fuel > 0)
             {
                 Mover.Hover();
                 FuelHandler.EnableDepletion();
             }
             
             // Check if can jump
-            if (Input.Jump)
+            if (Input.Jump.Held)
             {
                 Mover.Jump(Abilities.CanHoverJump);
                 jumpCancelled = false;
@@ -140,7 +140,7 @@ namespace Adhaesii.WazoooDOTexe.Player
             }
 
             // Check if can attack
-            if(Input.Attack && Abilities.CanAttack)
+            if(Input.MeleeAttack.Held && Abilities.CanAttack)
                 playerMeleeController.Attack();
         }
 
