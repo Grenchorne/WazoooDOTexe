@@ -397,7 +397,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   breakAction: 0
-  breakFX: {fileID: 3262357757130320518, guid: 7652f38396109714a9f1fc9e8893e651, type: 3}
+  breakFX: {fileID: 7732786108929573634, guid: 9317edd1b7d0639478fdf0cda54063b8, type: 3}
   useHealth: 1
 --- !u!114 &-1408464649110145713
 MonoBehaviour:

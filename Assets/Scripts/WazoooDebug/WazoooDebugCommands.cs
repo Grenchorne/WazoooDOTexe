@@ -24,6 +24,9 @@ namespace Adhaesii.WazoooDOTexe.WazoooDebug
         private KeyCode k_toggleUnlock_HoverJump = KeyCode.Alpha3;
 
         [SerializeField]
+        private KeyCode k_toggleUnlock_Shoot = KeyCode.Alpha4;
+
+        [SerializeField]
         private KeyCode k_fullHeal = KeyCode.Keypad0;
         
         [SerializeField]
@@ -62,6 +65,7 @@ namespace Adhaesii.WazoooDOTexe.WazoooDebug
             if (GetKeyDown(k_toggleUnlock_Attack)) unlockHandler.CanAttack = !unlockHandler.CanAttack;
             if (GetKeyDown(k_toggleUnlock_Hover)) unlockHandler.CanHover = !unlockHandler.CanHover;
             if (GetKeyDown(k_toggleUnlock_HoverJump)) unlockHandler.CanHoverJump = !unlockHandler.CanHoverJump;
+            if (GetKeyDown(k_toggleUnlock_Shoot)) unlockHandler.CanShoot = !unlockHandler.CanShoot;
             if (GetKeyDown(k_fullHeal)) playerHealth.FullHeal();
             if (GetKeyDown(k_damage)) playerHealth.Damage(gameObject);
 

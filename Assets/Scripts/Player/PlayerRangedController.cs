@@ -28,15 +28,16 @@ namespace Adhaesii.WazoooDOTexe.Player
 
         private void Update() => t_cooldown -= Time.deltaTime;
 
-        public void Shoot(bool facingRight)
+        public bool Shoot(bool facingRight)
         {
             if(t_cooldown > 0)
-                return;
+                return false;
 
             t_cooldown = cooldown;
             projectilePool.Get(projectileOrigin.position,
                 facingRight ? Vector2.right * projectileSpeed : Vector2.left * projectileSpeed, projectileIsKinematic,
                 constantVelocity);
+            return true;
         }
     }
 }

@@ -37,6 +37,9 @@ namespace Adhaesii.WazoooDOTexe.Player
         private GameObject[] hoverGameObjects;
 
         [SerializeField]
+        private bool shootConsumesFuel = true;
+
+        [SerializeField]
         private PlayerVerticalPeek.Settings peekSettings;
 
         [SerializeField]
@@ -108,7 +111,20 @@ namespace Adhaesii.WazoooDOTexe.Player
                 playerMeleeController.Attack();
 
             if (Input.RangedAttack.Down && Abilities.CanShoot)
-                RangedController.Shoot(transform.localScale.x > 0); 
+            {
+                if (shootConsumesFuel)
+                {
+                    if (FuelHandler.HasPip)
+                    {
+                        if (RangedController.Shoot(transform.localScale.x > 0))
+                            FuelHandler.DepleteFullPip();
+                    }
+                    else
+                        Debug.Log("no fuel");
+                }
+                else
+                    RangedController.Shoot(transform.localScale.x > 0); 
+            }
         }
 
         private void FixedUpdate()

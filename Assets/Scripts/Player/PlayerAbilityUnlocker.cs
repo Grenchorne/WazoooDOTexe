@@ -12,7 +12,8 @@ namespace Adhaesii.WazoooDOTexe.Player
             Jump,
             Attack,
             Hover,
-            HoverJump
+            HoverJump,
+            Ranged
         }
 
         [SerializeField]
@@ -81,6 +82,13 @@ namespace Adhaesii.WazoooDOTexe.Player
                         OnUnlock?.Invoke();
                     }
 
+                    break;
+                case Ability.Ranged:
+                    if (!ab.CanShoot)
+                    {
+                        ab.CanShoot = true;
+                        OnUnlock?.Invoke();
+                    }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

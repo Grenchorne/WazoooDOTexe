@@ -42,7 +42,7 @@ namespace Adhaesii.WazoooDOTexe
                 if (isHovering)
                 {
                     // deplete pip if hovering
-                    fuelHandler.DepletePip();
+                    fuelHandler.DepletePartialPip();
                 }
                 
                 // initialize the timers

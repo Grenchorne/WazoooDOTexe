@@ -127,7 +127,7 @@ namespace Adhaesii.WazoooDOTexe.Old
 
                         // deplete fuel if hovering
                         if (isHovering)
-                            _fuelHandler.DepletePip();
+                            _fuelHandler.DepletePartialPip();
 
                     }
                     else

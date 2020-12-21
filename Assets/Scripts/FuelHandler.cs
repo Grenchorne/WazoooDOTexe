@@ -24,7 +24,8 @@ namespace Adhaesii.WazoooDOTexe
                     OnDeplete?.Invoke();
             }
         }
-
+        
+        public bool HasPip => Fuel > 1f/pips;
 
         private GroundCheck _groundCheck;
         private bool depleting;
@@ -45,6 +46,8 @@ namespace Adhaesii.WazoooDOTexe
 
         public void EnableDepletion() => depleting = true;
         public void DisableDepletion() => depleting = false;
-        public void DepletePip() => Fuel -= Fuel % (1f / pips);
+        public void DepletePartialPip() => Fuel -= Fuel % (1f / pips);
+        public void DepleteFullPip() => Fuel = Mathf.Clamp01(Fuel - 1f / pips);
+
     }
 }

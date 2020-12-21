@@ -1,5 +1,6 @@
 using System;
 using Adhaesii.WazoooDOTexe.Old;
+using Adhaesii.WazoooDOTexe.Pooling;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -23,48 +24,43 @@ namespace Adhaesii.WazoooDOTexe
         [SerializeField]
         private bool useHealth;
 
-        private bool subscribed;
+        private void Awake()
+        {
+            if (!useHealth || !TryGetComponent(out HealthController healthController)) return;
+            healthController.OnDie += DoBreak;
+        }
+
         public void Damage(GameObject source)
         {
-            if (!useHealth)
+            if (!useHealth) DoBreak();
+        }
+
+        private void DoBreak()
+        {
+            if (breakFX)
             {
-                doBreak_();
-                return;
-            }
-            
-            if(TryGetComponent(out HealthController healthController))
-            {
-                if (!subscribed)
-                {
-                    healthController.OnDie += doBreak_;
-                    subscribed = true;
-                }
-                healthController.Damage(gameObject);
+                GameObject breakInstance = Instantiate(breakFX);
+                breakInstance.transform.position = transform.position;
+
+                if (breakInstance.TryGetComponent(out ISpawner spawner))
+                    spawner.Spawn(transform.position);
+                
+                Destroy(breakInstance, 2f);
             }
 
-            void doBreak_()
+            switch (breakAction)
             {
-                print("BREAK");
-                if (breakFX)
-                {
-                    GameObject breakInstance = Instantiate(breakFX);
-                    breakInstance.transform.position = transform.position;
-                    Destroy(breakInstance, 2f);
-                }
+                case BreakAction.DoNothing:
+                    break;
+                case BreakAction.Disable:
+                    gameObject.SetActive(false);
+                    break;
+                case BreakAction.Destroy:
+                    Destroy(gameObject);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
 
-                switch (breakAction)
-                {
-                    case BreakAction.DoNothing:
-                        break;
-                    case BreakAction.Disable:
-                        gameObject.SetActive(false);
-                        break;
-                    case BreakAction.Destroy:
-                        Destroy(gameObject);
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
             }
         }
     }
