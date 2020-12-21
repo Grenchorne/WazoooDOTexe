@@ -13556,11 +13556,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1014503447091326616, guid: 43d161a83e63b744082b29993517834b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.84
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1014503447091326616, guid: 43d161a83e63b744082b29993517834b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2187653124778754697, guid: 43d161a83e63b744082b29993517834b, type: 3}
       propertyPath: m_IsActive
@@ -127593,10 +127593,30 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 4926793769912348804, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
+    - target: {fileID: 5663021258140071193, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5663021258140071193, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
     - target: {fileID: 6140873136351735846, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 6140873136351735846, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
+    - target: {fileID: 6504429666724803577, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 6504429666724803577, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
+    - target: {fileID: 7170242299608808133, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 7170242299608808133, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
+    - target: {fileID: 7204955847106487404, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
+      propertyPath: m_lineSpacing
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204955847106487404, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8018096412484166104, guid: a1da665fd5932544f9be16e7995b98d7, type: 3}
       propertyPath: serializationData.Prefab
       value: 

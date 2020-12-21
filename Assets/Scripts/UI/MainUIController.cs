@@ -27,6 +27,12 @@ namespace Adhaesii.WazoooDOTexe.UI
 
         [SerializeField]
         private MessageNotification attackUnlockMessage;
+        
+        [SerializeField]
+        private MessageNotification hoverJumpUnlockMessage;
+        
+        [SerializeField]
+        private MessageNotification rangedUnlockMessage;
 
         [SerializeField]
         private CanvasGroup backgroundCanvas;
@@ -55,6 +61,8 @@ namespace Adhaesii.WazoooDOTexe.UI
             PlayerAbilityUnlockHandler p = FindObjectOfType<PlayerAbilityUnlockHandler>();
             p.OnUnlockHover += () => hoverUnlockMessage.Show();
             p.OnUnlockAttack += () => attackUnlockMessage.Show();
+            p.OnUnlockHoverJump += () => hoverJumpUnlockMessage.Show();
+            p.OnUnlockShoot += () => rangedUnlockMessage.Show();
             
             p.GetComponent<PlayerCurrency>().OnUpdate += currencyDisplay.UpdateText;
         }
@@ -64,10 +72,11 @@ namespace Adhaesii.WazoooDOTexe.UI
             if (Input.GetKeyDown(KeyCode.Escape))
                 ChangeMode(mode == Mode.Title ? Mode.Gameplay : Mode.Title);
 
-
             if (!playerInput.Jump.Down) return;
             attackUnlockMessage.Hide();
             hoverUnlockMessage.Hide();
+            hoverJumpUnlockMessage.Hide();
+            rangedUnlockMessage.Hide();
         }
 
         private void ChangeMode(Mode mode)
