@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Adhaesii.WazoooDOTexe.Player;
 using Adhaesii.WazoooDOTexe.WazoooInput.MonoBehaviours;
 using Sirenix.OdinInspector;
@@ -12,6 +13,9 @@ namespace Adhaesii.WazoooDOTexe.UI
 
         [SerializeField]
         private float timeout = 15f;
+
+        [SerializeField]
+        private float timeScaleDelay = 1f;
 
         [SerializeField]
         private Mode _startingMode = Mode.Gameplay;
@@ -38,6 +42,7 @@ namespace Adhaesii.WazoooDOTexe.UI
         private CanvasGroup backgroundCanvas;
 
         private CurrencyDisplay currencyDisplay;
+        private TimeDisplay timeDisplay;
 
         enum Mode
         {
@@ -50,6 +55,8 @@ namespace Adhaesii.WazoooDOTexe.UI
         private void Awake()
         {
             currencyDisplay = GetComponentInChildren<CurrencyDisplay>();
+            timeDisplay = GetComponentInChildren<TimeDisplay>();
+            Time.timeScale = 1;
         }
 
         private void Start()
@@ -72,6 +79,9 @@ namespace Adhaesii.WazoooDOTexe.UI
             if (Input.GetKeyDown(KeyCode.Escape))
                 ChangeMode(mode == Mode.Title ? Mode.Gameplay : Mode.Title);
 
+            if (mode == Mode.Gameplay)
+                timeDisplay.Increment(Time.deltaTime);
+            
             if (!playerInput.Jump.Down) return;
             attackUnlockMessage.Hide();
             hoverUnlockMessage.Hide();
@@ -87,14 +97,22 @@ namespace Adhaesii.WazoooDOTexe.UI
                     this.mode = Mode.Title;
                     LeanTween.alphaCanvas(mainMenu, 1, 1f);
                     LeanTween.alphaCanvas(gameplayMenu, 0, 1f);
+                    StartCoroutine(setPause_(true));
                     break;
                 case Mode.Gameplay:
                     this.mode = Mode.Gameplay;
                     LeanTween.alphaCanvas(mainMenu, 0, 1f);
                     LeanTween.alphaCanvas(gameplayMenu, 1, 1f);
+                    StartCoroutine(setPause_(false));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(mode), mode, null);
+            }
+            
+            IEnumerator setPause_(bool pause)
+            {
+                yield return new WaitForSeconds(timeScaleDelay);
+                Time.timeScale = pause ? 0 : 1;
             }
         }
 
