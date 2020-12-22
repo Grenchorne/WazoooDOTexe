@@ -54,13 +54,14 @@ namespace Adhaesii.WazoooDOTexe
 
             HealthController.OnDie += () => OnDeath?.Invoke();
 
-            //SlimeBossState.Death deathState = ;
-
             HealthController.OnDie += () =>
             {
                 StopAllCoroutines();
                 gameObject.SetActive(true);
                 damage.SetActive(false);
+
+                Rigidbody2D.simulated = false;
+                
                 StartCoroutine(_());
                 IEnumerator _()
                 {
