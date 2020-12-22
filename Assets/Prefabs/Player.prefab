@@ -1723,7 +1723,7 @@ AudioSource:
   m_GameObject: {fileID: 936140204990363466}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5879825395589390676, guid: b1cc02f70e4bd924ba8ffac40b174872, type: 2}
   m_audioClip: {fileID: 8300000, guid: 673366b6f4568f54ab388dcecc0b79fa, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -2042,7 +2042,7 @@ AudioSource:
   m_GameObject: {fileID: 3503279997459241181}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5879825395589390676, guid: b1cc02f70e4bd924ba8ffac40b174872, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -2657,7 +2657,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  projectileSpeed: 4
+  projectileSpeed: 32
   projectileOrigin: {fileID: 2147332690}
   cooldown: 0.7
   projectileIsKinematic: 1
@@ -2861,7 +2861,7 @@ MonoBehaviour:
   _canHover: 0
   _canHoverJump: 0
   _canAttack: 0
-  _canShoot: 1
+  _canShoot: 0
 --- !u!114 &1341776068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3154,7 +3154,7 @@ MonoBehaviour:
     maxPitch: 1.2
     volume: 1
     mixerGroup: {fileID: 0}
-    _probability: 1
+    _probability: 0.251
   despawnClips:
     clipContainer:
       clips:
@@ -3192,7 +3192,7 @@ MonoBehaviour:
     maxPitch: 1.2
     volume: 1
     mixerGroup: {fileID: 0}
-    _probability: 1
+    _probability: 0.399
   killEnemyClips:
     clipContainer:
       clips:
@@ -3202,7 +3202,7 @@ MonoBehaviour:
     maxPitch: 1.2
     volume: 1
     mixerGroup: {fileID: 0}
-    _probability: 1
+    _probability: 0.245
   seeBossClips:
     clipContainer:
       clips:
@@ -3287,7 +3287,7 @@ AudioSource:
   m_GameObject: {fileID: 6889896434989904525}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 2d964923ddb13f944b392a98ef25e9e0, type: 2}
+  OutputAudioMixerGroup: {fileID: 3317795790871097984, guid: b1cc02f70e4bd924ba8ffac40b174872, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
