@@ -26,6 +26,18 @@ namespace Adhaesii.WazoooDOTexe.Pooling
         [SerializeField]
         private ForceMode2D forceMode = ForceMode2D.Impulse;
 
+        private void Awake()
+        {
+            if (spawnOnAwake)
+                Spawn(transform.position);
+        }
+
+        private void OnEnable()
+        {
+            if(spawnOnEnable)
+                Spawn(transform.position);
+        }
+
         [Button]
         public void Spawn(Vector3 position)
         {

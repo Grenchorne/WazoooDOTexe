@@ -1,3 +1,4 @@
+using System;
 using Adhaesii.WazoooDOTexe.Player;
 using Adhaesii.WazoooDOTexe.Pooling;
 using Sirenix.OdinInspector;
@@ -36,6 +37,18 @@ namespace Adhaesii.WazoooDOTexe.WazoooDebug
         private KeyCode k_teleport = KeyCode.Z;
 
         [SerializeField]
+        private TeleportPair[] teleportPairs = 
+        {
+            new TeleportPair(KeyCode.Keypad0, null), 
+            new TeleportPair(KeyCode.Keypad1, null), 
+            new TeleportPair(KeyCode.Keypad2, null), 
+            new TeleportPair(KeyCode.Keypad3, null), 
+            new TeleportPair(KeyCode.Keypad4, null), 
+            new TeleportPair(KeyCode.Keypad5, null), 
+            new TeleportPair(KeyCode.Keypad6, null), 
+        };
+
+        [SerializeField]
         private bool spawnCoinOnRightClick = true;
 
         private PlayerFacade player;
@@ -72,13 +85,14 @@ namespace Adhaesii.WazoooDOTexe.WazoooDebug
             if (GetKeyDown(k_teleport))
             {
                 setScreenToWorldPoint_();
-                player.transform.position = (Vector2)mousePos;
-                
-                if(player.TryGetComponent(out Rigidbody2D  rigidbody2D))
-                    rigidbody2D.velocity = Vector2.zero;
-                
-                else if (player.TryGetComponent(out Rigidbody rigidbody))
-                    rigidbody.velocity = Vector3.zero;
+                teleport_((Vector2)mousePos);
+            }
+
+            foreach (TeleportPair teleportPair in teleportPairs)
+            {
+                if (!GetKeyDown(teleportPair.Key)) continue;
+                teleport_(teleportPair.Target.position);
+                break;
             }
             
             // mouse-dependant tasks
@@ -95,6 +109,35 @@ namespace Adhaesii.WazoooDOTexe.WazoooDebug
             {
                 if(mousePos == null)
                     mousePos =  mainCam.ScreenToWorldPoint(mousePosition);
+            }
+            
+            void teleport_(Vector2 position)
+            {
+                player.transform.position = position;
+                
+                if(player.TryGetComponent(out Rigidbody2D  rigidbody2D))
+                    rigidbody2D.velocity = Vector2.zero;
+                
+                else if (player.TryGetComponent(out Rigidbody rigidbody))
+                    rigidbody.velocity = Vector3.zero;
+            }
+        }
+
+        [Serializable]
+        private class TeleportPair
+        {
+            [SerializeField]
+            private KeyCode _key;
+            public KeyCode Key => _key;
+
+            [SerializeField]
+            private Transform _target;
+            public Transform Target => _target;
+
+            public TeleportPair(KeyCode key, Transform target)
+            {
+                _key = key;
+                _target = target;
             }
         }
     }
