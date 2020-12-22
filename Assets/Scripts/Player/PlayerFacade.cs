@@ -87,7 +87,7 @@ namespace Adhaesii.WazoooDOTexe.Player
             
             // Wazooo voice!
 
-            HealthController.OnUpdateHealth += () => WazoooVoice.PlayHurt();
+            HealthController.OnDamage += () => WazoooVoice.PlayHurt();
             HealthController.OnDie += () => WazoooVoice.PlayDeath();
             RespawnHandler.OnRespawn += (_) => WazoooVoice.PlayDespawn();
             
