@@ -20,8 +20,8 @@ namespace Adhaesii.WazoooDOTexe.UI
         {
             value += amount;
 
-            string minutes = ((int) this.value / 60).ToString("00");
-            string seconds = (this.value % 60).ToString("f2");
+            string minutes = ((int) value / 60).ToString("00");
+            string seconds = (value % 60).ToString("00.00");
 
             text.text = $"{minutes}:{seconds}";
         }
