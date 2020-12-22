@@ -7,7 +7,7 @@ namespace Adhaesii.WazoooDOTexe.Player
 {
     public class PlayerAbilityUnlocker : SerializedMonoBehaviour
     {
-        private enum Ability
+        public enum Ability
         {
             Jump,
             Attack,
@@ -43,7 +43,8 @@ namespace Adhaesii.WazoooDOTexe.Player
             }
         }
 
-        public UnityEvent OnUnlock; 
+        public UnityEvent OnUnlock;
+        public event Action<Ability> OnUnlockAbility;
 
         public void UnlockAbility()
         {
@@ -93,6 +94,8 @@ namespace Adhaesii.WazoooDOTexe.Player
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+            
+            OnUnlockAbility?.Invoke(ability);
         }
 
         private void OnTriggerEnter2D(Collider2D other)

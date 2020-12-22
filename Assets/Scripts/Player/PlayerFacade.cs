@@ -23,6 +23,8 @@ namespace Adhaesii.WazoooDOTexe.Player
         
         private PlayerRangedController RangedController { get; set; }
         
+        private WazoooVoice WazoooVoice { get; set; }
+        
         private HitSpriteFX HitFX { get; set; }
 
         private bool jumpCancelled;
@@ -59,6 +61,8 @@ namespace Adhaesii.WazoooDOTexe.Player
             Abilities = GetComponent<PlayerAbilityUnlockHandler>();
             HitFX = GetComponent<HitSpriteFX>();
             RangedController = GetComponent<PlayerRangedController>();
+
+            WazoooVoice = GetComponentInChildren<WazoooVoice>();
             
             peek = new PlayerVerticalPeek(peekSettings);
             peekTransform.SetParent(transform);
@@ -80,6 +84,17 @@ namespace Adhaesii.WazoooDOTexe.Player
 
             // Game Events
             HealthController.OnDie += () => GameEvents.Instance.PlayerDeath();
+            
+            // Wazooo voice!
+
+            HealthController.OnUpdateHealth += () => WazoooVoice.PlayHurt();
+            HealthController.OnDie += () => WazoooVoice.PlayDeath();
+            RespawnHandler.OnRespawn += (_) => WazoooVoice.PlayDespawn();
+            
+            EnemySensor.Instance.OnSeeBoss += (_) => WazoooVoice.PlaySeeBoss();
+            EnemySensor.Instance.OnSeeNewEnemy += (_) => WazoooVoice.PlaySeeEnemy();
+            EnemySensor.Instance.OnEnemyDie += (_) => WazoooVoice.PlayKillEnemy();
+            EnemySensor.Instance.OnBossDie += (_) => WazoooVoice.PlayKillBoss();
 
         }
 
