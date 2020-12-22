@@ -66,6 +66,8 @@ namespace Adhaesii.WazoooDOTexe.Audio
         public void PlayHit() => PlayOneShot(hitClips, hitClips != null);
 
         public void PlayDie() => PlayOneShot(deathClips, deathClips != null);
+        
+        
 
 
         public void ProcessHover(bool isHovering)
@@ -75,6 +77,7 @@ namespace Adhaesii.WazoooDOTexe.Audio
                 Mathf.Clamp01(sourceVolume + (Time.deltaTime / hoverRampTime * (isHovering ? 1 : -1)));
         }
 
+        // "YOINK!" -- WazoooVoice.cs
         private void PlayOneShot(AudioClip[] clips, bool playCondition = true, float minPitch = 0.9f, float maxPitch = 1.1f)
         {
             if(!playCondition)
