@@ -4862,7 +4862,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   spawnOnAwake: 0
-  spawnOnEnable: 1
+  spawnOnEnable: 0
   amountToSpawn: 3
   directionMin: {x: -1, y: 1}
   directionMax: {x: 1, y: 3}
