@@ -3188,6 +3188,24 @@ MonoBehaviour:
       clips:
       - clip: {fileID: 8300000, guid: 431027e1b6f14554f937712ce38c16a8, type: 3}
         weight: 1
+      - clip: {fileID: 8300000, guid: 3b7419cb54d162e409b1e7f04c22f17c, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: d43ebecbe9a369b43900c1932813455d, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: 3c9f89642fcdfc240850747802b66b83, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: 32f952ea148b46147bdcd1b3cd336fea, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: b5cc6ed7db560b34bb0c66440512bed1, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: 8c7c25ed3c2d18f4b9113f87d15a9c3c, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: 1f506958acbe1274a83f0a4de3972c5e, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: acb1806e74e625c4d9c576d7cbb90565, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: ebc1ebbc06242ae4191d1800bd90ff89, type: 3}
+        weight: 1
     minPitch: 0.9
     maxPitch: 1.2
     volume: 1
@@ -3198,6 +3216,16 @@ MonoBehaviour:
       clips:
       - clip: {fileID: 8300000, guid: dca2f71365affb1418e50a973aa27576, type: 3}
         weight: 1
+      - clip: {fileID: 8300000, guid: 6bc87f25f72c7bd43add684556b06d7b, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: 1c61d123ad961d546b145ce56c03d4a7, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: acb1806e74e625c4d9c576d7cbb90565, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: 5a38339c74113c84eaa48ffae78595dc, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: fefe018004d1e304b9fc4c6700ca75ba, type: 3}
+        weight: 1
     minPitch: 0.9
     maxPitch: 1.2
     volume: 1
@@ -3206,7 +3234,13 @@ MonoBehaviour:
   seeBossClips:
     clipContainer:
       clips:
-      - clip: {fileID: 8300000, guid: 6d5e40471ee795c4793a03ba8e37b0e9, type: 3}
+      - clip: {fileID: 8300000, guid: a76ad9411673b424eaf439cd45c199a1, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: 32f952ea148b46147bdcd1b3cd336fea, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: cde5000af0d14be47b8f97466c9d80b5, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: 43f20f50afca90c41b7cc8260596a843, type: 3}
         weight: 1
     minPitch: 0.9
     maxPitch: 1.2
@@ -3216,17 +3250,35 @@ MonoBehaviour:
   killBossClips:
     clipContainer:
       clips:
-      - clip: {fileID: 8300000, guid: 5f30412a8b8977d46a6423093c88ad2a, type: 3}
+      - clip: {fileID: 8300000, guid: 61d66d75163f96b48b4baa67177d6ba4, type: 3}
         weight: 1
+      - clip: {fileID: 8300000, guid: d6c6a74a5cec4b0429013dd57628dc54, type: 3}
+        weight: 0.2
     minPitch: 0.9
     maxPitch: 1.2
     volume: 1
     mixerGroup: {fileID: 0}
     _probability: 1
-  genericUnlockables: 0
+  genericUnlockables: 1
   unlockablesClips:
     clipContainer:
-      clips: []
+      clips:
+      - clip: {fileID: 8300000, guid: e0284aaf50b6d894983289b22fa36bcb, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: 9e58dd2b9048bb64285c5bf0b1862e22, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: e65ee430273df1f4b919844e8e4ae727, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: bf18f933b5040a64bad89095edd22acf, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: 5f30412a8b8977d46a6423093c88ad2a, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: 5a38339c74113c84eaa48ffae78595dc, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: ab4920f5d86db604ba111495e0421f87, type: 3}
+        weight: 1
+      - clip: {fileID: 8300000, guid: c0b015a1f783ff9488ec11b9727e25fb, type: 3}
+        weight: 1
     minPitch: 0.9
     maxPitch: 1.2
     volume: 1

@@ -96,6 +96,11 @@ namespace Adhaesii.WazoooDOTexe.Player
             EnemySensor.Instance.OnEnemyDie += (_) => WazoooVoice.PlayKillEnemy();
             EnemySensor.Instance.OnBossDie += (_) => WazoooVoice.PlayKillBoss();
 
+            Abilities.OnUnlockHover += () => WazoooVoice.PlayUnlock(default);
+            Abilities.OnUnlockAttack += () => WazoooVoice.PlayUnlock(default);
+            Abilities.OnUnlockHoverJump += () => WazoooVoice.PlayUnlock(default);
+            Abilities.OnUnlockShoot += () => WazoooVoice.PlayUnlock(default);
+
         }
 
         private void OnDisable()
