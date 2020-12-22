@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7907349556246935634}
   - component: {fileID: 7907349556246935635}
   - component: {fileID: 7907349556246935633}
+  - component: {fileID: 2491645610179778872}
   m_Layer: 8
   m_Name: SlimeBoss
   m_TagString: Untagged
@@ -229,6 +230,27 @@ MonoBehaviour:
   damageBounceForceMode: 1
   damageLocksMovement: 0
   damageBounceMovementDisableCooldown: 0.075
+--- !u!114 &2491645610179778872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7907349556246935662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f50deb8c1bb48179aeeff167dbbecda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
 --- !u!1 &7907349556849909799
 GameObject:
   m_ObjectHideFlags: 0
