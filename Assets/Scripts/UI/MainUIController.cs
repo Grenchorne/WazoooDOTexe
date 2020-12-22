@@ -15,9 +15,6 @@ namespace Adhaesii.WazoooDOTexe.UI
         private float timeout = 15f;
 
         [SerializeField]
-        private float timeScaleDelay = 1f;
-
-        [SerializeField]
         private Mode _startingMode = Mode.Gameplay;
 
         [SerializeField, Required]
@@ -76,8 +73,8 @@ namespace Adhaesii.WazoooDOTexe.UI
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-                ChangeMode(mode == Mode.Title ? Mode.Gameplay : Mode.Title);
+            if (Input.GetKeyDown(KeyCode.Escape) && mode == Mode.Gameplay)
+                ChangeMode(Mode.Title);
 
             if (mode == Mode.Gameplay)
                 timeDisplay.Increment(Time.deltaTime);
@@ -95,26 +92,29 @@ namespace Adhaesii.WazoooDOTexe.UI
             {
                 case Mode.Title:
                     this.mode = Mode.Title;
+                    StartCoroutine(_());                    
+                        
                     LeanTween.alphaCanvas(mainMenu, 1, 1f);
                     LeanTween.alphaCanvas(gameplayMenu, 0, 1f);
-                    StartCoroutine(setPause_(true));
+
+                    IEnumerator _()
+                    {
+                        yield return new WaitForSeconds(1);
+                        Time.timeScale = 0;
+                    }
                     break;
                 case Mode.Gameplay:
                     this.mode = Mode.Gameplay;
                     LeanTween.alphaCanvas(mainMenu, 0, 1f);
                     LeanTween.alphaCanvas(gameplayMenu, 1, 1f);
-                    StartCoroutine(setPause_(false));
+                    Time.timeScale = 1;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(mode), mode, null);
             }
-            
-            IEnumerator setPause_(bool pause)
-            {
-                yield return new WaitForSeconds(timeScaleDelay);
-                Time.timeScale = pause ? 0 : 1;
-            }
         }
+
+        public void StartResume() => ChangeMode(Mode.Gameplay);
 
         public void ShowBackground() => LeanTween.alphaCanvas(backgroundCanvas, 1, 0.75f);
 
