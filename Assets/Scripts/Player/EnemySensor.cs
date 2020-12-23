@@ -61,25 +61,25 @@ namespace Adhaesii.WazoooDOTexe.Player
         public void EnemyHasDied(GameObject enemyGameObject)
         {
             OnEnemyDie?.Invoke(enemyGameObject);
-            Debug.Log(gameObject.name + " died");
+//            Debug.Log(gameObject.name + " died");
         }
 
         public void SeeEnemy(GameObject gameObject)
         {
             OnSeeNewEnemy?.Invoke(gameObject);
-            Debug.Log(gameObject.name + " seen");
+//            Debug.Log(gameObject.name + " seen");
         }
 
         public void SeeBoss(GameObject bossObject)
         {
             OnSeeBoss?.Invoke(bossObject);
-            Debug.Log(gameObject.name + " seen");
+//            Debug.Log(gameObject.name + " seen");
         }
 
         public void BossHasDied(GameObject bossObject)
         {
             OnBossDie?.Invoke(bossObject);
-            Debug.Log(gameObject.name + " died");
+//            Debug.Log(gameObject.name + " died");
         }
 
         private void Update()

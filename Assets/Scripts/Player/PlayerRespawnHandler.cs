@@ -36,7 +36,7 @@ namespace Adhaesii.WazoooDOTexe.Player
                 return;
             }
 
-            if (useSelf)
+            if (useSelf && gameObject.activeSelf)
                 StartCoroutine(processRespawn_(transform));
             else if (player)
                 StartCoroutine(processRespawn_(player.transform));

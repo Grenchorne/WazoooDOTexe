@@ -24,7 +24,7 @@ namespace Adhaesii.WazoooDOTexe
 
         // Death
         [SerializeField]
-        private UnityEvent OnPlayerDeath;
+        public UnityEvent OnPlayerDeath;
 
         public void PlayerDeath() => OnPlayerDeath?.Invoke();
         
@@ -33,5 +33,10 @@ namespace Adhaesii.WazoooDOTexe
         private UnityEvent OnPlayerRespawn;
 
         public void PlayerRespawn() => OnPlayerRespawn?.Invoke();
+        
+        // Win
+        public UnityEvent OnPlayerWin;
+
+        public void PlayerWin() => OnPlayerWin?.Invoke();
     }
 }

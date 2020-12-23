@@ -84,6 +84,7 @@ namespace Adhaesii.WazoooDOTexe.Player
 
             // Game Events
             HealthController.OnDie += () => GameEvents.Instance.PlayerDeath();
+            HealthController.OnDie += () => gameObject.SetActive(false);
             
             // Wazooo voice!
 

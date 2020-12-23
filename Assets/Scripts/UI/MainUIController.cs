@@ -3,6 +3,7 @@ using System.Collections;
 using Adhaesii.WazoooDOTexe.Player;
 using Adhaesii.WazoooDOTexe.WazoooInput.MonoBehaviours;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -40,18 +41,37 @@ namespace Adhaesii.WazoooDOTexe.UI
         private CanvasGroup backgroundCanvas;
 
         [SerializeField]
+        private CanvasGroup gameOverMenu;
+
+        [SerializeField]
+        private FinalStatDisplay finalStatDisplay;
+
+        [SerializeField]
+        private GameObject wonMessage;
+        
+        [SerializeField]
+        private GameObject lostMessage;
+            
+        [SerializeField, Header("Events")]
         private UnityEvent OnPause;
         
         [SerializeField]
         private UnityEvent OnResume;
 
+        [SerializeField]
+        private UnityEvent OnGameOver;
+
         private CurrencyDisplay currencyDisplay;
         private TimeDisplay timeDisplay;
+
+        // quickndirty way to keep track of player death
+        private bool hasWon;
 
         enum Mode
         {
             Title,
-            Gameplay
+            Gameplay,
+            GameOver
         }
 
         private Mode mode = Mode.Title;
@@ -76,6 +96,9 @@ namespace Adhaesii.WazoooDOTexe.UI
             p.OnUnlockShoot += () => rangedUnlockMessage.Show();
             
             p.GetComponent<PlayerCurrency>().OnUpdate += currencyDisplay.UpdateText;
+            
+            GameEvents.Instance.OnPlayerDeath.AddListener(DisplayLose);
+            GameEvents.Instance.OnPlayerWin.AddListener(DisplayWin);
         }
 
         private void Update()
@@ -100,6 +123,7 @@ namespace Adhaesii.WazoooDOTexe.UI
                 case Mode.Title:
                     OnPause?.Invoke();
                     this.mode = Mode.Title;
+                    
                     StartCoroutine(_());                    
                         
                     LeanTween.alphaCanvas(mainMenu, 1, 1f);
@@ -107,6 +131,7 @@ namespace Adhaesii.WazoooDOTexe.UI
 
                     IEnumerator _()
                     {
+                        mainMenu.interactable = true;
                         yield return new WaitForSeconds(1);
                         Time.timeScale = 0;
                     }
@@ -114,13 +139,40 @@ namespace Adhaesii.WazoooDOTexe.UI
                 case Mode.Gameplay:
                     OnResume?.Invoke();
                     this.mode = Mode.Gameplay;
+                    mainMenu.interactable = false;
                     LeanTween.alphaCanvas(mainMenu, 0, 1f);
                     LeanTween.alphaCanvas(gameplayMenu, 1, 1f);
                     Time.timeScale = 1;
                     break;
+                case Mode.GameOver:
+                    this.mode = Mode.GameOver;
+                    OnGameOver?.Invoke();
+                    finalStatDisplay.GetStats();
+                    LeanTween.alphaCanvas(gameOverMenu, 1, 1f);
+                    LeanTween.alphaCanvas(mainMenu, 0, 1f);
+                    LeanTween.alphaCanvas(gameplayMenu, 0, 1f);
+                    
+                    FindObjectOfType<CursorDisplay>().ShowCursor();
+                    lostMessage.SetActive(!hasWon);
+                    wonMessage.SetActive(hasWon);
+                    
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(mode), mode, null);
+                
             }
+        }
+
+        public void DisplayWin()
+        {
+            hasWon = true;
+            ChangeMode(Mode.GameOver);
+        }
+
+        public void DisplayLose()
+        {
+            hasWon = false;
+            ChangeMode(Mode.GameOver);
         }
 
         public void StartResume() => ChangeMode(Mode.Gameplay);
