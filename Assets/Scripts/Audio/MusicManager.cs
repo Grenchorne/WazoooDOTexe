@@ -1,5 +1,7 @@
+using System.Collections;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Adhaesii.WazoooDOTexe.Audio
 {
@@ -11,6 +13,15 @@ namespace Adhaesii.WazoooDOTexe.Audio
 
         [SerializeField]
         private AudioClip bossMusic;
+
+        [SerializeField]
+        private AudioMixer audioMixer;
+
+        [SerializeField]
+        private AudioMixerSnapshot gameplaySnapshot;
+        
+        [SerializeField]
+        private AudioMixerSnapshot menuSnapshot;
         
         private AudioSource AudioSource { get; set; }
 
@@ -24,5 +35,30 @@ namespace Adhaesii.WazoooDOTexe.Audio
             AudioSource.clip = clip;
             AudioSource.Play();
         }
+
+        [Button]
+        public void ChangeToMenu()
+        {
+            StartCoroutine(_());
+
+            IEnumerator _()
+            {
+                audioMixer.TransitionToSnapshots(new[] {menuSnapshot}, new []{1f}, 1f);
+                yield break;
+            }
+        }
+
+        [Button]
+        public  void ChangeToGameplay()
+        {
+            StartCoroutine(_());
+
+            IEnumerator _()
+            {
+                audioMixer.TransitionToSnapshots(new[] {gameplaySnapshot}, new []{1f}, 1f);
+                yield break;
+            }
+        }
+        
     }
 }

@@ -4,6 +4,7 @@ using Adhaesii.WazoooDOTexe.Player;
 using Adhaesii.WazoooDOTexe.WazoooInput.MonoBehaviours;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Adhaesii.WazoooDOTexe.UI
 {
@@ -37,6 +38,12 @@ namespace Adhaesii.WazoooDOTexe.UI
 
         [SerializeField]
         private CanvasGroup backgroundCanvas;
+
+        [SerializeField]
+        private UnityEvent OnPause;
+        
+        [SerializeField]
+        private UnityEvent OnResume;
 
         private CurrencyDisplay currencyDisplay;
         private TimeDisplay timeDisplay;
@@ -91,6 +98,7 @@ namespace Adhaesii.WazoooDOTexe.UI
             switch (mode)
             {
                 case Mode.Title:
+                    OnPause?.Invoke();
                     this.mode = Mode.Title;
                     StartCoroutine(_());                    
                         
@@ -104,6 +112,7 @@ namespace Adhaesii.WazoooDOTexe.UI
                     }
                     break;
                 case Mode.Gameplay:
+                    OnResume?.Invoke();
                     this.mode = Mode.Gameplay;
                     LeanTween.alphaCanvas(mainMenu, 0, 1f);
                     LeanTween.alphaCanvas(gameplayMenu, 1, 1f);
