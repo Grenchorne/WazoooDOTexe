@@ -118,6 +118,7 @@ namespace Adhaesii.WazoooDOTexe.UI
 
         private void ChangeMode(Mode mode)
         {
+            StopAllCoroutines();
             switch (mode)
             {
                 case Mode.Title:
@@ -146,6 +147,7 @@ namespace Adhaesii.WazoooDOTexe.UI
                     break;
                 case Mode.GameOver:
                     this.mode = Mode.GameOver;
+                    gameOverMenu.interactable = true;
                     OnGameOver?.Invoke();
                     finalStatDisplay.GetStats();
                     LeanTween.alphaCanvas(gameOverMenu, 1, 1f);
