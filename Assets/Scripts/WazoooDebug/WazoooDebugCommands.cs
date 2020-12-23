@@ -10,6 +10,12 @@ namespace Adhaesii.WazoooDOTexe.WazoooDebug
     public class WazoooDebugCommands : SerializedMonoBehaviour
     {
         [SerializeField]
+        private bool debugActive;
+
+        [SerializeField]
+        private KeyCode k_toggleDebug;
+        
+        [SerializeField]
         private KeyCode k_respawn = KeyCode.R;
         
         [SerializeField]
@@ -35,6 +41,9 @@ namespace Adhaesii.WazoooDOTexe.WazoooDebug
 
         [SerializeField]
         private KeyCode k_teleport = KeyCode.Z;
+
+        [SerializeField]
+        private GameObject debugMessage;
 
         [SerializeField]
         private TeleportPair[] teleportPairs = 
@@ -71,6 +80,16 @@ namespace Adhaesii.WazoooDOTexe.WazoooDebug
 
         private void Update()
         {
+            if (GetKeyDown(k_toggleDebug))
+            {
+                debugActive = !debugActive;
+                if(debugActive)
+                    debugMessage.SetActive(true);
+            }
+            
+            if(!debugActive)
+                return;
+            
             Vector2? mousePos = null;
             
             if (GetKeyDown(k_respawn)) respawnHandler.Respawn();
@@ -81,6 +100,7 @@ namespace Adhaesii.WazoooDOTexe.WazoooDebug
             if (GetKeyDown(k_toggleUnlock_Shoot)) unlockHandler.CanShoot = !unlockHandler.CanShoot;
             if (GetKeyDown(k_fullHeal)) playerHealth.FullHeal();
             if (GetKeyDown(k_damage)) playerHealth.Damage(gameObject);
+            
 
             if (GetKeyDown(k_teleport))
             {
