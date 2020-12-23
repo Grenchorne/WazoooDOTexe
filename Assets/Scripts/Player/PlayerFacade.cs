@@ -140,8 +140,8 @@ namespace Adhaesii.WazoooDOTexe.Player
                         if (RangedController.Shoot(transform.localScale.x > 0))
                             FuelHandler.DepleteFullPip();
                     }
-                    else
-                        Debug.Log("no fuel");
+//                    else
+//                        Debug.Log("no fuel");
                 }
                 else
                     RangedController.Shoot(transform.localScale.x > 0); 

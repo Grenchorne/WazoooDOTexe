@@ -50,7 +50,7 @@ namespace Adhaesii.WazoooDOTexe.Pooling
                 coin.Transform.position = position;
                 
                 coin.GameObject.SetActive(true);
-                print($"Spawn: {coin.name}");
+//                print($"Spawn: {coin.name}");
 
                 Vector2 force = new Vector2(Random.Range(directionMin.x, directionMax.x) * this.force,
                     Random.Range(directionMin.y, directionMax.y) * this.force);
