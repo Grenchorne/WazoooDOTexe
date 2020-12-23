@@ -148,6 +148,7 @@ namespace Adhaesii.WazoooDOTexe.UI
                 case Mode.GameOver:
                     this.mode = Mode.GameOver;
                     gameOverMenu.interactable = true;
+                    gameOverMenu.blocksRaycasts = true;
                     OnGameOver?.Invoke();
                     finalStatDisplay.GetStats();
                     LeanTween.alphaCanvas(gameOverMenu, 1, 1f);
