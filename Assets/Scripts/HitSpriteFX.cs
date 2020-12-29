@@ -16,12 +16,28 @@ namespace Adhaesii.WazoooDOTexe
         [SerializeField]
         private float flashDuration = 1f;
 
+        private SpriteRenderer[] spriteRenderers;
+        private Material[] baseMats;
+
+        private void Awake()
+        {
+            // Establish base mats
+            spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+            
+            baseMats = new Material[spriteRenderers.Length];
+            for (int i = 0; i < baseMats.Length; i++) baseMats[i] = spriteRenderers[i].material;
+        }
+
         [Button]
         public void ShowFX(float frequency = -1f, float duration = -1f)
         {
             if (frequency < 0) frequency = flashFrequency;
             if (duration < 0) duration = flashDuration;
-
+            
+            StopAllCoroutines();
+            
+            ReturnToBase();
+            
             StartCoroutine(flashColour_());
 
             IEnumerator flashColour_()
@@ -30,14 +46,9 @@ namespace Adhaesii.WazoooDOTexe
                     yield break;
                 float startTime = Time.time;
                 float time;
-                var srs = GetComponentsInChildren<SpriteRenderer>();
 
                 Material flashMat = Resources.Load<Material>("WhiteFlash");
 
-                // Establish base mats
-                Material[] baseMats = new Material[srs.Length];
-
-                for (int i = 0; i < baseMats.Length; i++) baseMats[i] = srs[i].material;
 
                 // cache a WaitFor
                 WaitForSeconds wait = new WaitForSeconds(frequency);
@@ -46,15 +57,21 @@ namespace Adhaesii.WazoooDOTexe
                 do
                 {
                     time = Time.time;
-                    for (int i = 0; i < srs.Length; i++)
-                        srs[i].material = baseMat ? flashMat : baseMats[i];
+                    for (int i = 0; i < spriteRenderers.Length; i++)
+                        spriteRenderers[i].material = baseMat ? flashMat : baseMats[i];
                     yield return wait;
                     baseMat = !baseMat;
                 } while (startTime + duration > time);
 
                 // Reset to base mat
-                for (int i = 0; i < srs.Length; i++) srs[i].material = baseMats[i];
+                ReturnToBase();
             }
+
+        }
+
+        private void ReturnToBase()
+        {
+            for (int i = 0; i < spriteRenderers.Length; i++) spriteRenderers[i].material = baseMats[i];
         }
     }
 }

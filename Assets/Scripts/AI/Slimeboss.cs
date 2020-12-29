@@ -46,11 +46,16 @@ namespace Adhaesii.WazoooDOTexe
         private Rigidbody2D Rigidbody2D { get; set; }
         private HealthController HealthController { get; set; }
         private SlimeBossStateController StateController { get; set; }
+        
+        private HitSpriteFX HitFX { get; set; }
 
         private void Awake()
         {
             Rigidbody2D = GetComponent<Rigidbody2D >();
             HealthController = GetComponent<HealthController>();
+            HitFX = GetComponent<HitSpriteFX>();
+
+            HealthController.OnDamage += () => HitFX.ShowFX();
 
             HealthController.OnDie += () => OnDeath?.Invoke();
 
