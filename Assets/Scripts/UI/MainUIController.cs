@@ -64,6 +64,8 @@ namespace Adhaesii.WazoooDOTexe.UI
         private CurrencyDisplay currencyDisplay;
         private TimeDisplay timeDisplay;
 
+        private MessageNotification activeMessage;
+
         // quickndirty way to keep track of player death
         private bool hasWon;
 
@@ -71,6 +73,7 @@ namespace Adhaesii.WazoooDOTexe.UI
         {
             Title,
             Gameplay,
+            Message,
             GameOver
         }
 
@@ -90,10 +93,11 @@ namespace Adhaesii.WazoooDOTexe.UI
             ChangeMode(mode = _startingMode);
 
             PlayerAbilityUnlockHandler p = FindObjectOfType<PlayerAbilityUnlockHandler>();
-            p.OnUnlockHover += () => hoverUnlockMessage.Show();
-            p.OnUnlockAttack += () => attackUnlockMessage.Show();
-            p.OnUnlockHoverJump += () => hoverJumpUnlockMessage.Show();
-            p.OnUnlockShoot += () => rangedUnlockMessage.Show();
+
+            p.OnUnlockHover += () => DisplayMessage(hoverUnlockMessage);
+            p.OnUnlockAttack += () => DisplayMessage(attackUnlockMessage);
+            p.OnUnlockHoverJump += () => DisplayMessage(hoverJumpUnlockMessage);
+            p.OnUnlockShoot += () => DisplayMessage(rangedUnlockMessage);
             
             p.GetComponent<PlayerCurrency>().OnUpdate += currencyDisplay.UpdateText;
             
@@ -103,17 +107,28 @@ namespace Adhaesii.WazoooDOTexe.UI
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) && mode == Mode.Gameplay)
-                ChangeMode(Mode.Title);
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                switch (mode)
+                {
+                    case Mode.Title:
+                        ChangeMode(Mode.Gameplay);
+                        break;
+                    case Mode.Gameplay:
+                        ChangeMode(Mode.Title);
+                        break;
+                    case Mode.Message:
+                        ChangeMode(Mode.Gameplay);
+                        break;
+                    case Mode.GameOver:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
 
             if (mode == Mode.Gameplay)
                 timeDisplay.Increment(Time.deltaTime);
-            
-            if (!playerInput.Jump.Down) return;
-            attackUnlockMessage.Hide();
-            hoverUnlockMessage.Hide();
-            hoverJumpUnlockMessage.Hide();
-            rangedUnlockMessage.Hide();
         }
 
         private void ChangeMode(Mode mode)
@@ -125,22 +140,18 @@ namespace Adhaesii.WazoooDOTexe.UI
                     OnPause?.Invoke();
                     this.mode = Mode.Title;
                     
-                    StartCoroutine(_());                    
+                    mainMenu.interactable = true;
+                    StartCoroutine(slowToStop_());                    
                         
                     LeanTween.alphaCanvas(mainMenu, 1, 1f);
                     LeanTween.alphaCanvas(gameplayMenu, 0, 1f);
 
-                    IEnumerator _()
-                    {
-                        mainMenu.interactable = true;
-                        yield return new WaitForSeconds(1);
-                        Time.timeScale = 0;
-                    }
                     break;
                 case Mode.Gameplay:
                     OnResume?.Invoke();
                     this.mode = Mode.Gameplay;
                     mainMenu.interactable = false;
+                    if (activeMessage != null) activeMessage.Hide();
                     LeanTween.alphaCanvas(mainMenu, 0, 1f);
                     LeanTween.alphaCanvas(gameplayMenu, 1, 1f);
                     Time.timeScale = 1;
@@ -160,10 +171,35 @@ namespace Adhaesii.WazoooDOTexe.UI
                     wonMessage.SetActive(hasWon);
                     
                     break;
+                
+                case Mode.Message:
+                    this.mode = Mode.Message;
+                    
+                    StartCoroutine(slowToStop_());
+                    
+                    LeanTween.alphaCanvas(mainMenu, 0, 1f);
+                    LeanTween.alphaCanvas(gameplayMenu, 0, 1f);
+                    
+                    break;
+                
                 default:
                     throw new ArgumentOutOfRangeException(nameof(mode), mode, null);
                 
             }
+
+            IEnumerator slowToStop_()
+            {
+                yield return new WaitForSeconds(1);
+                Time.timeScale = 0;
+            }
+        }
+
+        private void DisplayMessage(MessageNotification message)
+        {
+            OnPause?.Invoke();
+            ChangeMode(Mode.Message);
+            activeMessage = message;
+            message.Show();
         }
 
         public void DisplayWin()
