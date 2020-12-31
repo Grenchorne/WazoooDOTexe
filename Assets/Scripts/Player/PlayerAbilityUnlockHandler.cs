@@ -71,5 +71,20 @@ namespace Adhaesii.WazoooDOTexe.Player
         public event Action OnUnlockHoverJump;
         public event Action OnUnlockAttack;
         public event Action OnUnlockShoot;
+
+        public int GetUnlockedAbilities()
+        {
+            int abilities = 0;
+            if (CanHover)
+                abilities++;
+            if(CanAttack)
+                abilities++;
+            if(CanShoot)
+                abilities++;
+            if(CanHoverJump)
+                abilities++;
+
+            return abilities;
+        }
     }
 }
