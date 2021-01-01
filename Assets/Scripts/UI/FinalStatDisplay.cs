@@ -17,11 +17,15 @@ namespace Adhaesii.WazoooDOTexe.UI
         [SerializeField]
         private TMP_Text_Binder<PlayerAbilityUnlockHandler> playerAbilities;
         
+        [SerializeField]
+        private TMP_Text_Binder<KillTracker> playerKillCount;
+        
         public void GetStats()
         {
             playerCurrency.Text.text = playerCurrency.Item.Value.ToString();
             playerTime.Text.text = playerTime.Item.FormattedValue;
             playerAbilities.Text.text = playerAbilities.Item.GetUnlockedAbilities().ToString("0");
+            playerKillCount.Text.text = playerKillCount.Item.Kills.ToString("00");
         }
         
         [Serializable]
