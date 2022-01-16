@@ -119,12 +119,13 @@ namespace Adhaesii.WazoooDOTexe.Player
             JumpProcessor.ReleaseJump();
         }
         
-        public void Hover()
+        public bool Hover()
         {
             if(disableHoverOnAscent && RigidBody2D.velocity.y > 0)
-                return;
+                return false;
             IsHovering = true;
             velocity.y = 0f;
+            return true;
         }
 
         private void SetFacing(float move)

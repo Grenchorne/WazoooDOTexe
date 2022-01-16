@@ -164,8 +164,8 @@ namespace Adhaesii.WazoooDOTexe.Player
             // Check if can hover -- ensure this is set before jump because a jump-hover depletes fuel
             else if (Abilities.CanHover && Input.Hover.Held && FuelHandler.Fuel > 0)
             {
-                Mover.Hover();
-                FuelHandler.EnableDepletion();
+                if(Mover.Hover())
+                    FuelHandler.EnableDepletion();
             }
             
             // Check if can jump
