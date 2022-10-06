@@ -1,4 +1,4 @@
-WazoooDOTexe
+WazoooDOTexe Unity project
 
 https://grenchorne.itch.io/wazooodotexe
 
